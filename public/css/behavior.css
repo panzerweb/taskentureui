@@ -1,0 +1,22 @@
+/* 
+========================================================================================
+This is the custom CSS style file mainly for the behavioral purposes
+of the Web Application. 
+(For Example: clicking the Mark As Favorite will change the background color of the div)
+========================================================================================
+
+*/
+
+/* Strikethrough the Task when completed */
+.text-strikethrough {
+    text-decoration: line-through;
+    color: hsl(0, 1%, 27%);
+}
+/* Fill the Div once it is marked as favorite */
+.fill-div{
+    background: #ffb1fb !important;
+}
+/* For favorite */
+.default{
+    background: #fff3ac !important;
+}
