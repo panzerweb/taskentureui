@@ -15,9 +15,12 @@
 
 @section('content')
 
-<h1 class="text-center">
+<h1 class="display-3 text-center">
     Favorite
 </h1>
+<p class="text-center lead">
+    Your Favorite Tasks are Here
+</p>
 
 <div class="container-lg">
     <div class="row justify-content-center">
