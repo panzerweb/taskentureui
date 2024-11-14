@@ -63,7 +63,12 @@ class TaskController extends Controller
             $task->update($request->only(['taskname', 'description']));
 
             // Call the currentUrl function with a custom message.
-            return $this->currentUrl("Task Edited Successfully");   
+            if(str_contains(url()->previous(), route('pages.starred'))){
+                return redirect()->route("pages.starred")->with("success", "Task Updated");
+            }
+            else{
+                return redirect()->route("home")->with("success", "Task Updated");
+            }
 
         } catch (ValidationException $error) {
             return redirect()->route('home')->withErrors($error->errors())->withInput();
@@ -98,7 +103,12 @@ class TaskController extends Controller
         $task->save();
 
         // Call the currentUrl function with a custom message.
-        $this->currentUrl("Task Mark as Favorite");
+        if(str_contains(url()->previous(), route('pages.starred'))){
+            return redirect()->route("pages.starred")->with("success", "Task Marked");
+        }
+        else{
+            return redirect()->route("home")->with("success", "Task Marked");
+        }
     }
 
     //============================================
@@ -121,12 +131,7 @@ class TaskController extends Controller
     // Based on that, redirect back to the previous page (starred or home).
     //============================================
     public function currentUrl($message){
-        if(str_contains(url()->previous(), route('pages.starred'))){
-            return redirect()->route("pages.starred")->with("success", $message);
-        }
-        else{
-            return redirect()->route("home")->with("success", $message);
-        }
+        
     }
 }
 
