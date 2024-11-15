@@ -22,10 +22,10 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-7">
             @foreach ($tasks as $task)
-            <div class="d-flex justify-content-between border border-2 rounded-1 gap-3 py-1 mb-2">
+            <div class="d-flex justify-content-between align-items-center border border-2 rounded-1 gap-3 py-1 px-3 mb-2">
                 {{-- Task Content --}}
-                <div class="text-content w-100">
-                    <h3 class="fw-bold @if($task->is_completed) text-strikethrough @endif" id="task-name">{{ $task->taskname }}</h3>
+                <div class="text-content w-100 mx-3">
+                    <h3 class="fw-bold @if($task->is_completed) text-strikethrough @endif align-self-center" id="task-name">{{ $task->taskname }}</h3>
                     <p class="@if($task->is_completed) text-strikethrough @endif">{{ $task->description }}</p>
                 </div>
                 {{-- Add buttons to restore or permanently delete --}}

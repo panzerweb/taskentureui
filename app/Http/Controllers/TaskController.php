@@ -57,7 +57,7 @@ class TaskController extends Controller
     }
     
     //============================================
-    // Deleting Feature Soft Delete and Deliver to Task
+    // Deleting Feature Soft Delete and Deliver to Trash
     //============================================
     public function deleteTask($id){
         $task = Task::findOrFail($id);
@@ -149,7 +149,7 @@ class TaskController extends Controller
         Description: 
         The Section for all the display or view functions
     */
-        //============================================
+    //============================================
     // Viewing All Tasks
     //============================================
     public function index() {

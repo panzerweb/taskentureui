@@ -7,6 +7,19 @@ of the Web Application.
 
 */
 
+:root{
+    /* Colors */
+    --bg-color: #401F71;
+    --primary: #6635B1;
+    --secondary: #FFFFFF;
+    --primary-content: #F78F4B;
+    --secondary-content: #FDAF7B;
+    --first-accent: #DAD9D9;
+    --second-accent: #A1A1A1;
+    --fill: #ffb1fb;
+    --unfill: #fff3ac;
+}
+
 /* Strikethrough the Task when completed */
 .text-strikethrough {
     text-decoration: line-through;
@@ -14,9 +27,9 @@ of the Web Application.
 }
 /* Fill the Div once it is marked as favorite */
 .fill-div{
-    background: #ffb1fb !important;
+    background: var(--fill) !important;
 }
 /* For favorite */
 .default{
-    background: #fff3ac !important;
+    background: var(--unfill) !important;
 }

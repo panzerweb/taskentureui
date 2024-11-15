@@ -16,7 +16,7 @@
 
 @section('content')
 
-<div class="container-lg">
+<div class="container-lg home">
     <div class="row justify-content-center">
         {{-- ======================================================== --}}
         {{-- Task CRUD --}}
@@ -31,14 +31,14 @@
                     id="search"
                     placeholder="Search"
                 />
-                <button type="submit" class="btn btn-primary" id="search-button">
+                <button type="submit" class="btn btn-warning" id="search-button">
                     Search
                 </button>
             </div>
 
             {{-- ======================================================== --}}
             {{-- Add Task Form --}}
-            <div class="wrapper p-3 rounded-3 bg-secondary">
+            <div class="wrapper p-3 rounded-3">
                 <h2 class="fw-bold">Add Task</h2>
                 <form action="/create-task" method="post">
                     @csrf
@@ -50,7 +50,7 @@
                             id="taskname"
                             placeholder="Add your Task..."
                         />
-                        <button type="submit" class="btn btn-primary" id="add-task-button">
+                        <button type="submit" class="btn btn-warning" id="add-task-button">
                             Add Task
                         </button>
                     </div>

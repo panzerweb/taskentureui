@@ -1,0 +1,81 @@
+/* press-start-2p-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/press-start-2p-v15-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+/* roboto-condensed-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-condensed-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* Colors */
+    --bg-color: #401F71;
+    --primary: #6635B1;
+    --secondary: #FFFFFF;
+    --primary-content: #F78F4B;
+    --secondary-content: #FDAF7B;
+    --first-accent: #DAD9D9;
+    --second-accent: #A1A1A1;
+
+    /* Fonts */
+    --main-font: 'Press Start 2P';
+    --content-font: 'Roboto Condensed';
+
+    /* Font Sizes */
+    --heading1: 1.7rem; 
+    --heading2: 1.5rem; 
+    --heading3: 1.345rem; 
+    --heading4: 1.3rem; 
+    --heading5: 1.24rem; 
+    --heading6: 1.1rem; 
+    --paragraph: 1rem;
+    --small: 0.7rem;
+    --accent-small: 0.6rem;
+}
+
+
+html {
+    font-size: 1rem !important; /* Set base font size to 16px */
+}
+
+/* Header */
+.navbar{
+    background: var(--primary);
+    font-family: var(--main-font);
+    font-size: var(--small);
+}
+
+/* Content in home.blade.php */
+main{
+    font-family: var(--content-font);
+}
+
+.wrapper{
+    background: var(--first-accent);
+}
+
+.wrapper h2{
+    font-family: var(--main-font);
+    font-size: var(--heading2);
+}
+.wrapper h3{
+    font-size: var(--heading3);
+}
+.wrapper p{
+    font-size: var(--paragraph);
+}
