@@ -56,13 +56,13 @@
                     <ul class="navbar-nav ms-auto">
                         {{-- Page Links --}}
                         <li class="nav-item">
-                            <x-navlink href="{{ route('home') }}" :active="request()->routeIs('home')">My List</x-navlink>
+                            <x-navlink href="{{ route('home') }}" :active="request()->routeIs('home') || request()->routeIs('tasks.search') && request()->route('context') === 'home'">My List</x-navlink>
                         </li>
                         <li class="nav-item">
-                            <x-navlink href="{{ route('pages.starred') }}" :active="request()->routeIs('pages.starred')">Favorite</x-navlink>
+                            <x-navlink href="{{ route('pages.starred') }}" :active="request()->routeIs('pages.starred') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.starred'">Favorite</x-navlink>
                         </li>
                         <li class="nav-item">
-                            <x-navlink href="{{ route('pages.trash') }}" :active="request()->routeIs('pages.trash')">Trash</x-navlink>
+                            <x-navlink href="{{ route('pages.trash') }}" :active="request()->routeIs('pages.trash') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.trash'">Trash</x-navlink>
                         </li>
                         <li class="nav-item">
                             <x-navlink href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')">Help</x-navlink>

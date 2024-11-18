@@ -23,18 +23,20 @@
         <div class="col-12 col-lg-7">
             {{-- ======================================================== --}}
             {{-- Search Bar --}}
-            <div class="input-group mb-3">
-                <input
-                    type="search"
-                    class="form-control form-control-md"
-                    name="search"
-                    id="search"
-                    placeholder="Search"
-                />
-                <button type="submit" class="btn btn-warning" id="search-button">
-                    Search
-                </button>
-            </div>
+            <form action="{{ route('tasks.search', ['context' => 'home']) }}" method="get">
+                <div class="input-group mb-3">
+                    <input
+                        type="search"
+                        class="form-control form-control-md"
+                        name="search"
+                        id="search"
+                        placeholder="Search"
+                    />
+                    <button type="submit" class="btn btn-warning" id="search-button">
+                        Search
+                    </button>
+                </div>
+            </form>
 
             {{-- ======================================================== --}}
             {{-- Add Task Form --}}
@@ -60,6 +62,7 @@
                 {{-- ======================================================== --}}
                 {{-- Task List --}}
                 <h2 class="fw-bold mt-4">Tasks</h2>
+                @if($tasks->isNotEmpty()){{-- If searched query is true --}}
                 @foreach ($tasks as $task)
                     <div class="d-flex justify-content-between border border-2 rounded-1 gap-3 py-1 mb-2 
                         @if($task->is_favorite) fill-div @else default @endif"
@@ -123,11 +126,15 @@
                         {{-- ======================================================== --}}
                     </div>
                 @endforeach
+                @else
+                    <p class="text-center lead bg-light rounded-3 p-3">No Record Found</p>
+                @endif
             </div>
         </div>
         <div class="col-12 col-lg-5">
             <h1 class="fw-bold">Rewards</h1>
         </div>
+
 
 
 

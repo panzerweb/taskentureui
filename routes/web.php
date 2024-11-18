@@ -32,4 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/starred-task/{id}', [TaskController::class, 'markAsFavorite'])->name('tasks.starred');
     Route::get('/restore-task/{id}', [TaskController::class, 'restoreTask'])->name('tasks.restore');
+
+    //Search
+    Route::get('/search/{context}', [TaskController::class, 'search'])->name('tasks.search');
 });

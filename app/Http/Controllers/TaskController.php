@@ -141,6 +141,37 @@ class TaskController extends Controller
     
         return $this->currentUrl("Task Deleted Permanently");
     }
+
+    //============================================
+    // Search Function
+    //============================================
+    public function search(Request $request, $context)
+    {
+        $search = trim($request->input('search')); // Remove extra spaces
+        
+        // Start with a base query
+        $query = Task::query();
+
+        // Apply context-specific filters
+        if($context == 'pages.starred'){
+            $query->where('is_favorite', 1);
+        }
+        else if($context == 'pages.trash'){
+            $query->onlyTrashed();
+        }
+        // Perform the query based on whether a search term is provided
+        if (!empty($search)) {
+            $query->where('taskname', 'like', "%$search%");
+        } 
+
+        // Execute the query
+        $tasks = $query->get();
+
+        // Return the view with filtered tasks
+        return view($context, ['tasks' => $tasks]);
+    }
+
+    
     /*
          ==========================================================
         ||                  DISPLAY FEATURES                     ||

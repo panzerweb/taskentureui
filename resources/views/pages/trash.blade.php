@@ -21,6 +21,23 @@
 <div class="container-lg">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-7">
+            {{-- Search Bar --}}
+            <form action="{{ route('tasks.search', ['context' => 'pages.trash'])}}" method="get">
+                <div class="input-group mb-3">
+                    <input
+                        type="search"
+                        class="form-control form-control-md"
+                        name="search"
+                        id="search"
+                        placeholder="Search"
+                    />
+                    <button type="submit" class="btn btn-warning" id="search-button">
+                        Search
+                    </button>
+                </div>
+            </form>
+
+            @if($tasks->isNotEmpty())
             @foreach ($tasks as $task)
             <div class="d-flex justify-content-between align-items-center border border-2 rounded-1 gap-3 py-1 px-3 mb-2">
                 {{-- Task Content --}}
@@ -43,6 +60,9 @@
 
             </div>
             @endforeach
+            @else
+                <p class="text-center lead bg-light rounded-3 p-3">No Record Found</p>
+            @endif
         </div>
     </div>
 </div>

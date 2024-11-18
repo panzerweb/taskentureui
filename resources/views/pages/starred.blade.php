@@ -25,6 +25,27 @@
 <div class="container-lg">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-7">
+            {{-- Search Bar --}}
+            <form action="{{ route('tasks.search', ['context' => 'pages.starred'])}}" method="get">
+                <div class="input-group mb-3">
+                    <input
+                        type="search"
+                        class="form-control form-control-md"
+                        name="search"
+                        id="search"
+                        placeholder="Search"
+                    />
+                    <button type="submit" class="btn btn-warning" id="search-button">
+                        Search
+                    </button>
+                </div>
+            </form>
+            
+            {{-- ======================================================== --}}
+            {{-- Filter if the task is not empty and 
+                the task is a favorite to search --}}
+            {{-- ======================================================== --}}
+            @if($tasks->isNotEmpty() && $tasks->filter(fn($task) => $task->is_favorite)->isNotEmpty())
             @foreach ($tasks as $task)
             @if ($task->is_favorite)
                 <div class="d-flex justify-content-between border border-2 rounded-1 gap-3 py-1 mb-2 
@@ -90,6 +111,9 @@
                 </div>
             @endif 
             @endforeach
+            @else
+                <p class="text-center lead bg-light rounded-3 p-3">No Record Found</p>
+            @endif
         </div>
 
 
