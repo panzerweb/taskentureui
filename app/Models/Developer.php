@@ -47,7 +47,7 @@ class Developer extends Model
                 'cover_photo'=> 'images/devs/cover4.jpg',
                 'education' => 'Davao del Norte State College',
                 'skills' => ["HTML", "CSS", "Php", "Bootstrap", "Laravel", "MySQL", "Canva", "Ibis Paint"],
-                'address' => 'University Of Mindanao, Panabo City'
+                'address' => 'San Fransisco, Panabo City'
             ]
         ];
 
