@@ -65,9 +65,9 @@
                         <li class="nav-item">
                             <x-navlink href="{{ route('pages.trash') }}" :active="request()->routeIs('pages.trash') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.trash'">Trash</x-navlink>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <x-navlink href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')">Help</x-navlink>
-                        </li>
+                        </li> -->
                         
                         <!-- Authentication Links -->
                         @guest
@@ -129,7 +129,7 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5 class="fw-semibold">Community</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Team</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')" class="nav-link p-0 text-light">Team</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Developer Message</a></li>
                     </ul>
                 </div>
