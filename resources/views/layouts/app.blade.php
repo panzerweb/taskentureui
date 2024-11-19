@@ -33,6 +33,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> {{-- Sweet Alert Script --}}
+    @viteReactRefresh
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -64,9 +65,9 @@
                         <li class="nav-item">
                             <x-navlink href="{{ route('pages.trash') }}" :active="request()->routeIs('pages.trash') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.trash'">Trash</x-navlink>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <x-navlink href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')">Help</x-navlink>
-                        </li>
+                        </li> -->
                         
                         <!-- Authentication Links -->
                         @guest
@@ -128,7 +129,7 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5 class="fw-semibold">Community</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Team</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')" class="nav-link p-0 text-light">Team</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Developer Message</a></li>
                     </ul>
                 </div>
@@ -141,7 +142,7 @@
                             <a href="#" class="fs-5 px-1 text-warning link-opacity-50-hover"><i class="bi bi-meta"></i></a>
                             <a href="#" class="fs-5 px-1 text-warning link-opacity-50-hover"><i class="bi bi-instagram"></i></a>
                             <a href="#" class="fs-5 px-1 text-warning link-opacity-50-hover"><i class="bi bi-tiktok"></i></a>
-                            <a href="#" class="fs-5 px-1 text-warning link-opacity-50-hover"><i class="bi bi-github"></i></a>
+                            <a href="https://github.com/panzerweb/TaskEnture" class="fs-5 px-1 text-warning link-opacity-50-hover"><i class="bi bi-github"></i></a>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,6 @@ use Dotenv\Exception\ValidationException;
 
 // Description: 
 // Main Controller for the Task Model
-
 class TaskController extends Controller
 {
     /*
@@ -198,10 +197,11 @@ class TaskController extends Controller
         // Retrieve all tasks associated with the currently authenticated user
         // The `auth()->id()` method gets the ID of the logged-in user
         $tasks = Task::where('user_id', auth()->id())->get();
-    
+        
         // Pass the retrieved tasks to the 'home' view for rendering
         // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
         return view('home', compact('tasks'));
+       
     }
 
     //============================================

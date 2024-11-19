@@ -24,4 +24,12 @@ class Task extends Model
         return $this->belongsTo(Priority::class);
     }
 
+    public function show($id){
+        $task = Task::find($id); 
+
+    if ($task) {
+        return $task->id;  // Access the 'id' field correctly
+    }
+    return 'Task not found';
+    }
 }
