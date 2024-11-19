@@ -29,11 +29,11 @@
     --secondary: #FFFFFF;
     --dark: #121212;
     --primary-content: #F78F4B;
-    --secondary-content: #FDAF7B;
+    --secondary-content: #ffe682;
     --first-accent: #DAD9D9;
     --second-accent: #A1A1A1;
-    --fill-second: #ffb1fb;
-    --fill: #fff3ac;
+    --fill-second: #870680;
+    --fill: #daa3ff;
 
     /* Fonts */
     --main-font: 'Press Start 2P';
