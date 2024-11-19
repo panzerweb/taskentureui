@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\Trash;
+use App\Models\Priority;
 use Illuminate\Http\Request;
 use Dotenv\Exception\ValidationException;
 
@@ -39,23 +40,33 @@ class TaskController extends Controller
     //============================================
     public function editTask(Request $request, Task $task) {
         try {
+            // Validate the input, including the priority_id
             $request->validate([
                 "taskname" => "required|max:255",
-                "description" => "nullable|max:255"
+                "description" => "nullable|max:255",
+                "priority_id" => "nullable|in:,1,2,3"
             ]);
-    
+
+            // Prepare the data for update
+            $data = $request->only(['taskname', 'description', "priority_id"]);
+
+            // If priority_id is an empty string, set it to null, THIS means the first option with no value in select box
+            if ($data['priority_id'] === "") {
+                $data['priority_id'] = null;
+            }
+
             // Update the task with validated input
-            $task->update($request->only(['taskname', 'description']));
+            $task->update($data);
 
             // Call the currentUrl function with a custom message.
             return $this->currentUrl("Task Updated");
 
-
         } catch (ValidationException $error) {
+            // Handle validation errors
             return redirect()->route('home')->withErrors($error->errors())->withInput();
         }
     }
-    
+
     //============================================
     // Deleting Feature Soft Delete and Deliver to Trash
     //============================================

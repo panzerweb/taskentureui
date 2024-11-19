@@ -85,7 +85,7 @@
                         <img src="{{asset('images/misc/Trashicon3.svg')}}" alt="" class="img-fluid object-fit-cover">
                         <h3 class="fw-bold text-light shadow-lg py-2">
                             You have 
-                                <span id="countOfTrash">{{$task->count()}}</span> 
+                                <span id="countOfTrash">{{$tasks->count()}}</span> 
                             Task Deleted
                         </h3>
                     </div>

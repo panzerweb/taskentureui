@@ -56,6 +56,20 @@
                             <label for="" class="form-label">Description</label>
                             <textarea class="form-control form-control-md border border-2 border-dark-subtle" name="description" id="description" rows="3">{{$task->description}}</textarea>
                         </div>
+                        {{-- Priorities --}}
+                        <div class="mb-3">
+                            <label for="priority" class="form-label">Priority</label>
+                            <select
+                                class="form-select form-select-lg"
+                                name="priority_id"
+                                id="priority_id"
+                            >
+                                <option value="" selected>Select one</option>
+                                <option value="1" {{ $task->priority_id == 1 ? 'selected' : '' }}>High</option>
+                                <option value="2" {{ $task->priority_id == 2 ? 'selected' : '' }}>Medium</option>
+                                <option value="3" {{ $task->priority_id == 3 ? 'selected' : '' }}>Low</option>
+                            </select>
+                        </div>
                         
                     </div>
                 </div>

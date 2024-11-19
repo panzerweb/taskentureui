@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Priority;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 // Task Model
 class Task extends Model
@@ -16,7 +17,11 @@ class Task extends Model
 
     // Allows mass assignment only on these specific attributes ONLY
     protected $fillable = [
-        "taskname", "description", "user_id", "is_completed", "is_favorite"
+        "taskname", "description", "user_id", "is_completed", "is_favorite", "priority_id"
     ];
+
+    public function priority(){
+        return $this->belongsTo(Priority::class);
+    }
 
 }
