@@ -75,18 +75,23 @@ h2{
     font-size: var(--heading2);
 }
 h3{
+    font-family: var(--content-font);
     font-size: var(--heading3);
 }
 h4{
+    font-family: var(--content-font);
     font-size: var(--heading4);
 }
 h5{
+    font-family: var(--content-font);
     font-size: var(--heading5);
 }
 h6{
+    font-family: var(--content-font);
     font-size: var(--heading6);
 }
 p{
+    font-family: var(--content-font);
     font-size: var(--paragraph);
 }
 
@@ -192,4 +197,9 @@ main{
 }
 .modal-footer .save:hover{
     background: var(--secondary-content);
+}
+
+/* Main Footer Content */
+.footer-section{
+    background: var(--primary);
 }
