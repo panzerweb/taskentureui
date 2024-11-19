@@ -32,9 +32,9 @@
 
 <div class="container-lg help-wrapper mb-3">  
     <div class="row justify-content-center">
-        <div class="col-8 col-lg-4">
+        <div class="col-8 col-lg-5">
             <div class="card card-primary card-outline border border-3 border-dark" style="margin-top: -5rem">
-                <div class="card-header text-light">
+                <div class="card-header text-light rounded-0">
                     <h3 class="card-title">Profile</h3>
                   </div>
                 <div class="card-body box-profile">
