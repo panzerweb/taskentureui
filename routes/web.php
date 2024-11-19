@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
+use App\Models\Dev;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pages/trash', [App\Http\Controllers\TaskController::class, 'trashIndex'])->name('pages.trash');
     // Help Route
     Route::get('/pages/help', [App\Http\Controllers\HomeController::class, 'help'])->name('pages.help');
+    Route::get('/pages/help/{id}', [App\Http\Controllers\HomeController::class, 'findDevs'])->name('pages.developer');
 
     // Task CRUD and Actions
     Route::post('/create-task', [TaskController::class, 'createTask']);

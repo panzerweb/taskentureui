@@ -16,7 +16,7 @@
 
 @section('content')
 
-<div class="container-lg home">
+<div class="container-lg home py-4">
     <div class="row justify-content-center">
         {{-- ======================================================== --}}
         {{-- Task CRUD --}}
@@ -24,10 +24,10 @@
             {{-- ======================================================== --}}
             {{-- Search Bar --}}
             <form action="{{ route('tasks.search', ['context' => 'home']) }}" method="get">
-                <div class="input-group mb-3">
+                <div class="input-group my-3">
                     <input
                         type="search"
-                        class="form-control form-control-md"
+                        class="form-control form-control-md border border-2 border-dark-subtle"
                         name="search"
                         id="search"
                         placeholder="Search"
@@ -40,14 +40,14 @@
 
             {{-- ======================================================== --}}
             {{-- Add Task Form --}}
-            <div class="wrapper p-3 rounded-3">
+            <div class="wrapper p-3 rounded-3 shadow border border-2 border-dark-subtle">
                 <h2 class="fw-bold">Add Task</h2>
                 <form action="/create-task" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input
                             type="text"
-                            class="form-control form-control-md"
+                            class="form-control form-control-md border border-2 border-dark-subtle"
                             name="taskname"
                             id="taskname"
                             placeholder="Add your Task..."
@@ -61,10 +61,10 @@
 
                 {{-- ======================================================== --}}
                 {{-- Task List --}}
-                <h2 class="fw-bold mt-4">Tasks</h2>
+                <h2 class="fw-bold mt-4 mb-3">Tasks</h2>
                 @if($tasks->isNotEmpty()){{-- If searched query is true --}}
                 @foreach ($tasks as $task)
-                    <div class="d-flex justify-content-between border border-2 rounded-1 gap-3 py-1 mb-2 
+                    <div class="task-box d-flex justify-content-between border border-dark-subtle border-1 rounded-1 gap-3 py-1 mb-2 shadow-sm
                         @if($task->is_favorite) fill-div @else default @endif"
                     >
                         <form action="{{route('tasks.toggleComplete', $task->id)}}" method="post" class="d-flex align-items-center gap-2">
@@ -132,7 +132,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-5">
-            <h1 class="fw-bold">Rewards</h1>
+            <h2 class="fw-bold">Rewards</h2>
         </div>
 
 

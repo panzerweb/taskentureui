@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Developer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,8 +35,20 @@ class HomeController extends Controller
     {
         return view('pages.trash');
     }
+
+    // Help Function
+    // Also The profile of each developers
     public function help()
     {
-        return view('pages.help');
+        $devs = Developer::allDevs(); //Show all Developers
+
+        return view('pages.help', compact('devs'));
     }
+
+    public function findDevs($id){
+        $dev = Developer::findDeveloper($id);
+
+        return view('pages.developer', ['dev' => $dev]);
+    }
+
 }

@@ -25,9 +25,9 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">
-                    Modal title
-                </h5>
+                <h4 class="modal-title text-light" id="modalTitleId">
+                    Edit Task
+                </h4>
                 <button
                     type="button"
                     class="btn-close"
@@ -44,7 +44,7 @@
                             <label for="" class="form-label">Task Name</label>
                             <input
                                 type="text"
-                                class="form-control"
+                                class="form-control form-control-md border border-2 border-dark-subtle"
                                 name="taskname"
                                 id="taskname"
                                 aria-describedby="helpId"
@@ -54,7 +54,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Description</label>
-                            <textarea class="form-control" name="description" id="description" rows="3">{{$task->description}}</textarea>
+                            <textarea class="form-control form-control-md border border-2 border-dark-subtle" name="description" id="description" rows="3">{{$task->description}}</textarea>
                         </div>
                         
                     </div>
@@ -62,12 +62,12 @@
                 <div class="modal-footer">
                     <button
                         type="button"
-                        class="btn btn-secondary"
+                        class="btn text-light fw-semibold close"
                         data-bs-dismiss="modal"
                     >
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn text-light fw-semibold save">Save Changes</button>
                 </div>
             </form>
 

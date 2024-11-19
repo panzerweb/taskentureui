@@ -12,24 +12,37 @@ of the Web Application.
     --bg-color: #401F71;
     --primary: #6635B1;
     --secondary: #FFFFFF;
+    --dark: #121212;
     --primary-content: #F78F4B;
     --secondary-content: #FDAF7B;
     --first-accent: #DAD9D9;
     --second-accent: #A1A1A1;
-    --fill: #ffb1fb;
-    --unfill: #fff3ac;
+    --fill-second: #ffb1fb;
+    --fill: #fff3ac;
 }
 
 /* Strikethrough the Task when completed */
 .text-strikethrough {
     text-decoration: line-through;
-    color: hsl(0, 1%, 27%);
+    color: var(--second-accent) !important;
 }
-/* Fill the Div once it is marked as favorite */
+
+/* Main Task-box in all pages */
+.task-box{
+    transition: 0.2s linear;
+    cursor: pointer;
+    /* Default Background */
+    background: var(--secondary);
+}
+.task-box:hover{
+    background: var(--fill-second) !important;
+    color: var(--first-accent);
+}
+/* Fill the Task-Box Div once it is marked as favorite */
 .fill-div{
     background: var(--fill) !important;
 }
 /* For favorite */
 .default{
-    background: var(--unfill) !important;
+    background: var(--secondary) !important;
 }

@@ -27,10 +27,13 @@
     --bg-color: #401F71;
     --primary: #6635B1;
     --secondary: #FFFFFF;
+    --dark: #121212;
     --primary-content: #F78F4B;
     --secondary-content: #FDAF7B;
     --first-accent: #DAD9D9;
     --second-accent: #A1A1A1;
+    --fill-second: #ffb1fb;
+    --fill: #fff3ac;
 
     /* Fonts */
     --main-font: 'Press Start 2P';
@@ -60,22 +63,133 @@ html {
     font-size: var(--small);
 }
 
+
+
+/* Default styling outside any custom wrapper */
+h1{
+    font-family: var(--main-font);
+    font-size: var(--heading1);
+}
+h2{
+    font-family: var(--main-font);
+    font-size: var(--heading2);
+}
+h3{
+    font-size: var(--heading3);
+}
+h4{
+    font-size: var(--heading4);
+}
+h5{
+    font-size: var(--heading5);
+}
+h6{
+    font-size: var(--heading6);
+}
+p{
+    font-size: var(--paragraph);
+}
+
 /* Content in home.blade.php */
 main{
     font-family: var(--content-font);
 }
 
 .wrapper{
-    background: var(--first-accent);
+    background: var(--primary);
+    color: var(--secondary);
 }
 
+.wrapper h1{
+    font-family: var(--main-font);
+    font-size: var(--heading1);
+}
 .wrapper h2{
     font-family: var(--main-font);
     font-size: var(--heading2);
 }
 .wrapper h3{
     font-size: var(--heading3);
+    color: var(--dark);
 }
 .wrapper p{
     font-size: var(--paragraph);
+    color: var(--dark);
+}
+
+/* Content in trash.blade.php */
+.deleted-count-wrapper{
+    background: var(--bg-color);
+}
+.img-wrapper{
+    background: var(--primary);
+}
+.img-wrapper h3{
+    font-family: var(--main-font);
+    font-size: var(--heading3);
+}
+
+/* Content in help.blade.php */
+.help-header-div{
+    background: var(--bg-color);
+}
+.help-wrapper h3{
+    font-family: var(--main-font);
+    font-size: var(--heading3);
+}
+
+/* Content in Developer.blade.php */
+.card-header, .list-header{
+    background: var(--primary) !important;
+}
+
+/* Miscellanous Bootstrap Components CSS Styling */
+.dropdown button:hover{
+    color: var(--dark);
+}
+.dropdown button:focus{
+    color: var(--dark);
+}
+.dropdown-menu{
+    background: var(--fill) !important;
+}
+
+/* views/layout custom styling */
+/* Modal Content Styling*/
+.modal-header{
+    background: var(--primary);
+}
+.modal-header h4{
+    font-family: var(--main-font);
+    font-size: var(--heading4);
+}
+
+.modal-body label{
+    font-size: var(--heading5);
+}
+
+.modal-body input{
+    font-size: var(--paragraph);
+}
+.modal-body textarea{
+    font-size: var(--paragraph);
+}
+
+.modal-footer{
+    background: var(--primary) !important;
+}
+
+.modal-footer .close{
+    background: var(--bg-color);
+    letter-spacing: 1px;
+}
+.modal-footer .close:hover{
+    background: var(--second-accent);
+}
+.modal-footer .save{
+    background: var(--primary-content);
+    letter-spacing: 1px;
+}
+.modal-footer .save:hover{
+    background: var(--secondary-content);
 }

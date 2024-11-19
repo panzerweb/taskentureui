@@ -94,7 +94,7 @@ class TaskController extends Controller
         $task->is_completed = !$task->is_completed;
         $task->save();
         
-        return redirect()->back()->with('success', 'Task status updated!');
+        return redirect()->back()->with('success', 'Task Status updated!');
     }
 
 
@@ -108,7 +108,7 @@ class TaskController extends Controller
         $task->save();
 
         // Call the currentUrl function with a custom message.
-        return $this->currentUrl("Task Marked");
+        return $this->currentUrl("Task Marked Updated");
     }
 
     //============================================
@@ -214,7 +214,7 @@ class TaskController extends Controller
         // Retrieve all tasks associated with the currently authenticated user
         // The `auth()->id()` method gets the ID of the logged-in user
         $tasks = Trash::where('user_id', auth()->id())->get();
-    
+        
         // Pass the retrieved tasks to the 'starred' view for rendering
         // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
         return view('pages.trash', compact('tasks'));
