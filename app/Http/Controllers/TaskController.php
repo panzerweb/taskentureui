@@ -43,16 +43,22 @@ class TaskController extends Controller
             $request->validate([
                 "taskname" => "required|max:255",
                 "description" => "nullable|max:255",
-                "priority_id" => "nullable|in:,1,2,3"
+                "priority_id" => "nullable|in:,1,2,3",
+                "category_id" => "nullable|in:,1,2,3",
             ]);
 
             // Prepare the data for update
-            $data = $request->only(['taskname', 'description', "priority_id"]);
+            $data = $request->only(['taskname', 'description', "priority_id", "category_id"]);
 
             // If priority_id is an empty string, set it to null, THIS means the first option with no value in select box
             if ($data['priority_id'] === "") {
                 $data['priority_id'] = null;
             }
+            // If category_id is an empty string, set it to null, THIS means the first option with no value in select box
+            if ($data['category_id'] === "") {
+                $data['category_id'] = null;
+            }
+
 
             // Update the task with validated input
             $task->update($data);

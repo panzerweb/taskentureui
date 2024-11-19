@@ -102,6 +102,17 @@
                             @else
                                 <span class="badge text-bg-secondary">Null</span>
                             @endif
+
+                            {{-- Category --}}
+                            @if ($task->category_id == 1)
+                                <span class="badge bg-warning text-dark">Personal</span>
+                            @elseif ($task->category_id == 2)
+                                <span class="badge bg-primary">Professional</span>
+                            @elseif ($task->category_id == 3)
+                                <span class="badge bg-info text-dark">Academic</span>
+                            @else
+                                <span class="badge bg-secondary">Null</span>
+                            @endif
                             
                         </div>
                         </form>

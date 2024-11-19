@@ -70,6 +70,20 @@
                                 <option value="3" {{ $task->priority_id == 3 ? 'selected' : '' }}>Low</option>
                             </select>
                         </div>
+                        {{-- Categories --}}
+                        <div class="mb-3">
+                            <label for="priority" class="form-label">Category</label>
+                            <select
+                                class="form-select form-select-lg"
+                                name="category_id"
+                                id="category_id"
+                            >
+                                <option value="" selected>Select one</option>
+                                <option value="1" {{ $task->category_id == 1 ? 'selected' : '' }}>Personal</option>
+                                <option value="2" {{ $task->category_id == 2 ? 'selected' : '' }}>Professional</option>
+                                <option value="3" {{ $task->category_id == 3 ? 'selected' : '' }}>Academics</option>
+                            </select>
+                        </div>
                         
                     </div>
                 </div>
