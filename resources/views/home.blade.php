@@ -126,16 +126,21 @@
                             <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-three-dots-vertical fs-3"></i>
                             </button>
+
                             <ul class="dropdown-menu">
+
                                 {{-- Edit Task -- Activate Modal --}}
-                                <li><a class="dropdown-item" data-bs-toggle="modal"
-                                    data-bs-target="#editModalId{{$task->id}}">Edit</a></li>
+                                <form action="{{ route('tasks.edit', $task->id) }}" method="get">
+                                <li><button class="dropdown-item" type="submit" data-bs-toggle="modal" data-bs-target="#editModalId{{$task->id}}">Edit</button></li>
+                                </form>
+
                                 {{-- Delete Task --}}
                                 <form action="{{route('tasks.delete', $task->id)}}" method="post">
                                     @csrf
                                     @method("DELETE")
                                     <li><button class="dropdown-item text-danger" type="submit">Delete</button></li>
                                 </form>
+
                                 {{-- Mark Task as Favorite --}}
                                 <form action="{{route('tasks.starred', $task->id)}}" method="post">
                                     @csrf
@@ -143,6 +148,7 @@
                                 </form>
                             </ul>
                         </div>
+                        {{-- ======================================================== --}}
 
                         {{-- ======================================================== --}}
                     </div>
