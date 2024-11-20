@@ -148,15 +148,19 @@ main{
     background: var(--primary) !important;
 }
 
-/* Miscellanous Bootstrap Components CSS Styling */
-.dropdown button:hover{
-    color: var(--dark);
+/* Simple and Engaging Hover Style for Dropdown */
+.dropdown button {
+    transition: color 0.4s, background-color 0.4s;
 }
-.dropdown button:focus{
-    color: var(--dark);
+.dropdown button:hover {
+    color: var(--primary);
+    background-color: #fbd040; /* Light background on hover */
 }
-.dropdown-menu{
-    background: var(--fill) !important;
+.dropdown button:focus {
+    color: var(--primary);
+}
+.dropdown-menu {
+    background: var(--secondary) !important;
 }
 
 /* views/layout custom styling */

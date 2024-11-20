@@ -16,9 +16,9 @@ class PrioritiesSeeder extends Seeder
     public function run(): void
     {
         DB::table('priorities')->insert([
-            ['name' => 'High', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Medium', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Low', 'created_at' => now(), 'updated_at' => now()],
+            ['name' =>  'High', 'created_at' => now(), 'updated_at' => now()],
+            ['name' =>  'Medium', 'created_at' => now(), 'updated_at' => now()],
+            ['name' =>  'Low', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

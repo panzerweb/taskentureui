@@ -22,7 +22,12 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
-        Schema::dropIfExists('priorities');
-    }
+{
+    Schema::table('tasks', function (Blueprint $table) {
+        $table->dropForeign(['priority_id']);
+        $table->dropColumn('priority_id');
+    });
+
+    Schema::dropIfExists('priorities');
+}
 };

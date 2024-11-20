@@ -16,17 +16,16 @@ return new class extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-            Schema::table('task', function (Blueprint $table) {
                 // Dropping the foreign key column
                 $table->dropForeign(['priority_id']);
                 $table->dropColumn('priority_id');
             });
-        });
     }
 };
