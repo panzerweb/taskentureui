@@ -130,9 +130,9 @@
                             <ul class="dropdown-menu">
 
                                 {{-- Edit Task -- Activate Modal --}}
-                                <form action="{{ route('tasks.edit', $task->id) }}" method="get">
-                                <li><button class="dropdown-item" type="submit" data-bs-toggle="modal" data-bs-target="#editModalId{{$task->id}}">Edit</button></li>
-                                </form>
+                                <li>
+                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editModalId{{$task->id}}">Edit</a>
+                                </li>
 
                                 {{-- Delete Task --}}
                                 <form action="{{route('tasks.delete', $task->id)}}" method="post">
