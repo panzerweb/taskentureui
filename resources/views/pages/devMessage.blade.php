@@ -11,9 +11,12 @@
 
 @extends('layouts.app')
 
+@section('content')
 
 <div class="help-header-div py-5">
     <h1 class="text-center text-light">
         Developer Message
     </h1>
 </div>
+
+@endsection
