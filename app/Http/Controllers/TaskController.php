@@ -6,7 +6,9 @@ use App\Models\Task;
 use App\Models\Trash;
 use App\Models\Priority;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Dotenv\Exception\ValidationException;
+use App\Notifications\DueDateNotification;
 
 // Description: 
 // Main Controller for the Task Model
@@ -45,10 +47,11 @@ class TaskController extends Controller
                 "description" => "nullable|max:255",
                 "priority_id" => "nullable|in:,1,2,3",
                 "category_id" => "nullable|in:,1,2,3",
+                "due_date" => "date|after_or_equal: today",
             ]);
 
             // Prepare the data for update
-            $data = $request->only(['taskname', 'description', "priority_id", "category_id"]);
+            $data = $request->only(['taskname', 'description', "priority_id", "category_id", "due_date"]);
 
             // If priority_id is an empty string, set it to null, THIS means the first option with no value in select box
             if ($data['priority_id'] === "") {
@@ -59,9 +62,13 @@ class TaskController extends Controller
                 $data['category_id'] = null;
             }
 
-
             // Update the task with validated input
             $task->update($data);
+
+            //Notify the user
+            $user = auth()->user();
+            $user->notify(new DueDateNotification($task));
+            
 
             // Call the currentUrl function with a custom message.
             return $this->currentUrl("Task Updated");

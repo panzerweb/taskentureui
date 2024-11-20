@@ -95,6 +95,11 @@ p{
     font-size: var(--paragraph);
 }
 
+span{
+    font-family: var(--content-font);
+    font-size: var(--small);
+}
+
 /* Content in home.blade.php */
 main{
     font-family: var(--content-font);

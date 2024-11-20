@@ -12,27 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->foreignId('priority_id')->nullable()->constrained()->onDelete('set null');
+            $table->date('due_date')->nullable();
         });
     }
 
-    
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-<<<<<<< Updated upstream
-                // Dropping the foreign key column
-                $table->dropForeign(['priority_id']);
-                $table->dropColumn('priority_id');
-            });
-=======
-            // Dropping the foreign key and column
-            $table->dropForeign(['priority_id']);
-            $table->dropColumn('priority_id');
+            $table->dropColumn('due_date');
         });
->>>>>>> Stashed changes
     }
 };

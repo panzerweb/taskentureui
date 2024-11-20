@@ -159,7 +159,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-5">
-            <h2 class="fw-bold">Rewards</h2>
+            <h2 class="fw-bold">Rewards</h2>     
         </div>
 
 

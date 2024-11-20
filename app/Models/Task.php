@@ -17,8 +17,15 @@ class Task extends Model
 
     // Allows mass assignment only on these specific attributes ONLY
     protected $fillable = [
-        "taskname", "description", "user_id", "is_completed", "is_favorite", "priority_id", "category_id"
-    ];
+                        "taskname", 
+                        "description", 
+                        "user_id", 
+                        "is_completed", 
+                        "is_favorite", 
+                        "priority_id", 
+                        "category_id", 
+                        "due_date"
+                    ];
 
     public function priority(){
         return $this->belongsTo(Priority::class);

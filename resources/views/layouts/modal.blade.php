@@ -84,6 +84,12 @@
                                 <option value="3" {{ $task->category_id == 3 ? 'selected' : '' }}>Academics</option>
                             </select>
                         </div>
+
+                        {{-- Due Date --}}
+                        <div class="mb-3">
+                            <label for="due_date" class="form-label">Due Date</label>
+                            <input type="date" id="due_date" name="due_date" class="form-control" value="{{ $task->due_date }}">
+                        </div>
                         
                     </div>
                 </div>
