@@ -51,4 +51,17 @@ class HomeController extends Controller
         return view('pages.developer', ['dev' => $dev]);
     }
 
+    // FAQS Function
+    public function FAQS(){
+        return view('pages.faqs');
+    }
+    // Report Bug
+    public function ReportBug(){
+        return view('pages.reportbug');
+    }
+    // Developers Message
+    public function devMessage(){
+        return view('pages.devmessage');
+    }
+
 }

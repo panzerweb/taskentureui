@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [TaskController::class, 'index'])->name('home');
     Route::get('/pages/starred', [TaskController::class, 'starredIndex'])->name('pages.starred');
     Route::get('/pages/trash', [App\Http\Controllers\TaskController::class, 'trashIndex'])->name('pages.trash');
+  
     // Help Route
     Route::get('/pages/help', [App\Http\Controllers\HomeController::class, 'help'])->name('pages.help');
     Route::get('/pages/help/{id}', [App\Http\Controllers\HomeController::class, 'findDevs'])->name('pages.developer');
@@ -42,6 +43,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/delete-task/{id}', [TaskController::class, 'deleteTask'])->name('tasks.delete');
     //Hard Delete
     Route::get('/delete-task-permanently/{id}', [TaskController::class, 'hardDelete'])->name('tasks.deletepermanent');
+
+    
+    //Footer Section 
+    //User Help
+    Route::get('/FAQS', [App\Http\Controllers\HomeController::class, 'FAQS'])->name('faqs');
+    //Report Bug
+    Route::get('/ReportBug', [App\Http\Controllers\HomeController::class, 'ReportBug'])->name('reportbug');
+    // Developer Message
+    Route::get('/devMessage', [App\Http\Controllers\HomeController::class, 'devMessage'])->name('devmessage');
+
 });
 
 

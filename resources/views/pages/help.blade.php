@@ -16,13 +16,13 @@
 
 <div class="help-header-div py-5">
     <h1 class="text-center text-light">
-        Taskenture
+        TEAM
     </h1>
 </div>
 
 <div class="container-lg help-wrapper my-3">
     <div class="row justify-content-center">
-        <h3 class="fw-bold text-center mt-4 mb-2">Our Team</h3>
+        <!-- <h3 class="fw-bold text-center mt-4 mb-2">Our Team</h3> -->
         <p class="text-center mb-4">Cooperation and Collaboration of these wonderful developers have this app a success.</p>
 
         @foreach($devs as $dev)

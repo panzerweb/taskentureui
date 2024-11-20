@@ -120,9 +120,8 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5 class="fw-semibold">Support</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Help</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Report Bug</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('faqs') }}" class="nav-link p-0 text-light">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('reportbug') }}" class="nav-link p-0 text-light">Report Bug</a></li>
                     </ul>
                 </div>
             
@@ -130,7 +129,7 @@
                     <h5 class="fw-semibold">Community</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')" class="nav-link p-0 text-light">Team</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Developer Message</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('devmessage') }}" class="nav-link p-0 text-light">Developer Message</a></li>
                     </ul>
                 </div>
             
