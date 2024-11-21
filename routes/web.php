@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TaskController;
 use App\Models\Dev;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
     //Hard Delete
     Route::get('/delete-task-permanently/{id}', [TaskController::class, 'hardDelete'])->name('tasks.deletepermanent');
 
+    //Notification Delete
+    Route::get('/delete-notification/{id}', [NotificationController::class, 'deleteNotif'])->name('notification.delete');
     
     //Footer Section 
     //User Help

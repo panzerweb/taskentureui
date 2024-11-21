@@ -104,16 +104,24 @@
                     <svg xmlns="http://www.w3.org/2000/svg" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" width="24" height="24" fill="currentColor" style="cursor: pointer;" class="bi bi-bell-fill text-warning" viewBox="0 0 16 16">
                         <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
                     </svg>
-                    <ul class="dropdown-menu" aria-labelledby="notificationDropdown" style="max-width: 500px;">
+                    <ul class="dropdown-menu py-0 rounded-1 border border-2 border-warning" aria-labelledby="notificationDropdown" style="max-width: 500px;">
                         @forelse (auth()->user()->unreadNotifications as $notification)
                             <li>
-                                <a href="" class="dropdown-item px-2">
-                                    <h6 class="fw-bold">Updated!</h6>
+                                <div class="dropdown-item px-2 border border-2 border-warning">
+                                    <h3 class="fw-bold">Updated!</h3>
                                     <p class="fw-bold mb-0">{{$notification->data['taskname']}}</p>
                                     <p class="small my-0">Due on {{ $notification->data['due_date'] }}</p>
-                                    <span class="fw-semibold">Updated at: </span><span class="small">{{ $notification->updated_at }}</span>
-                                </a>
-                                <hr>
+                                    <span class="fw-semibold">Updated at: </span>
+                                    <div class="d-flex gap-2 align-items-center">
+                                        <span class="small">{{ $notification->updated_at }}</span>
+
+                                        <a href="{{route('notification.delete', $notification->id)}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill text-warning m-1" viewBox="0 0 16 16">
+                                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
                             </li>
                         @empty
                             <li>
