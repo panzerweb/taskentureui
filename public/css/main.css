@@ -131,6 +131,10 @@ main{
 .deleted-count-wrapper{
     background: var(--bg-color);
 }
+.deleted-count-wrapper span{
+    font-family: var(--main-font);
+    font-size: var(--heading3);
+}
 .img-wrapper{
     background: var(--primary);
 }

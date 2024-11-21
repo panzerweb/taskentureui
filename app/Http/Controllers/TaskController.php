@@ -47,7 +47,7 @@ class TaskController extends Controller
                 "description" => "nullable|max:255",
                 "priority_id" => "nullable|in:,1,2,3",
                 "category_id" => "nullable|in:,1,2,3",
-                "due_date" => "date|after_or_equal: today",
+                "due_date" => "nullable|date|after_or_equal: today",
             ]);
 
             // Prepare the data for update
