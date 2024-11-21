@@ -40,10 +40,10 @@
                     <h5 class="card-title fw-bold">{{$dev['name']}}</h5>
                     <p class="card-subtitle mb-2 ">{{$dev['role']}}</p>
                     <div class="d-flex justify-content-center gap-2">
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-meta"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-tiktok"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-github"></i></a>
+                        <a href="https://goto.now/w8E4P" class="btn btn-sm btn-outline-warning"><i class="bi bi-meta"></i></a>
+                        <a href="https://www.instagram.com/" class="btn btn-sm btn-outline-warning"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/en/" class="btn btn-sm btn-outline-warning"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://github.com/" class="btn btn-sm btn-outline-warning"><i class="bi bi-github"></i></a>
                     </div>
                     <small class="text-dark d-block mt-3">Joined: 2024</small>
 
