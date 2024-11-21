@@ -44,7 +44,7 @@ class TaskController extends Controller
             // Validate the input, including the priority_id
             $request->validate([
                 "taskname" => "required|max:255",
-                "description" => "nullable|max:255",
+                "description" => "nullable|string",
                 "priority_id" => "nullable|in:,1,2,3",
                 "category_id" => "nullable|in:,1,2,3",
                 "due_date" => "nullable|date|after_or_equal: today",
