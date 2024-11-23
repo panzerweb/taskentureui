@@ -52,8 +52,11 @@ class DueDateNotification extends Notification
     {
         return [
             'task_id' => $this->task->id,
+            'priority_id' => $this->task->priority ? $this->task->priority->id : null,
+            'category_id' => $this->task->category ? $this->task->category->id : null,
             'taskname'=> $this->task->taskname,
             'due_date' => $this->task->due_date,
         ];
     }
+
 }

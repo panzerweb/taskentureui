@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use App\Models\Priority;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -29,6 +30,10 @@ class Task extends Model
 
     public function priority(){
         return $this->belongsTo(Priority::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 
     public function show($id){

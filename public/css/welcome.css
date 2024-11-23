@@ -16,6 +16,7 @@
     src: url('../fonts/roboto-condensed-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
 
+
 *{
     margin: 0;
     padding: 0;
@@ -58,12 +59,9 @@ html {
 
 /* Header */
 .navbar{
-    background: var(--primary);
     font-family: var(--main-font);
     font-size: var(--small);
 }
-
-
 
 /* Default styling outside any custom wrapper */
 h1{
@@ -96,119 +94,71 @@ p{
 }
 
 
-/* Content in home.blade.php */
-main{
-    font-family: var(--content-font);
+body {
+    height: 100%;
+    background-image:
+    linear-gradient(to bottom, 
+    rgba(64, 31, 113, 0.785), /* #401f71 */
+    rgba(71, 35, 125, 0.9), /* #47237d */
+    rgba(78, 39, 137, 0.9), /* #4e2789 *0.9
+    rgba(85, 43, 149, 0.9), /* #552b95 */
+    rgba(92, 47, 161, 0.9), /* #5c2fa1 */
+    rgba(99, 46, 162, 0.9), /* #632ea2 */
+    rgba(107, 45, 164, 0.9), /* #6b2da4 */
+    rgba(114, 44, 165, 0.9), /* #722ca5 */
+    rgba(121, 36, 156, 0.9), /* #79249c */
+    rgba(127, 28, 146, 0.9), /* #7f1c92 */
+    rgba(132, 19, 137, 0.9), /* #841389 */
+    rgba(135, 6, 128, 1)   /* #870680 */),
+    url('../images/bg-1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
-.wrapper{
-    background: var(--primary);
-    color: var(--secondary);
+
+/* Navbar */
+.navbar .nav-link:hover{
+    color: #ffc107 !important;
 }
 
-.wrapper h1{
+/* Button */
+.main-button {
+    cursor: pointer;
+    font-size: var(--paragraph);
     font-family: var(--main-font);
-    font-size: var(--heading1);
-}
-.wrapper h2{
-    font-family: var(--main-font);
-    font-size: var(--heading2);
-}
-.wrapper h3{
-    font-size: var(--heading3);
+    font-weight: bold;
     color: var(--dark);
-}
-.wrapper p{
-    font-size: var(--paragraph);
+    background-color: var(--secondary);
+    padding: 0.8em 2.2em;
+    border-radius: 50em;
+    border: 6px solid var(--fill);
+    box-shadow: 0px 8px var(--fill-second);
+  }
+.main-button:active {
+    position: relative;
+    top: 8px;
     color: var(--dark);
-}
-
-/* Content in trash.blade.php */
-.deleted-count-wrapper{
-    background: var(--bg-color);
-}
-.deleted-count-wrapper span{
-    font-family: var(--main-font);
-    font-size: var(--heading3);
-}
-.img-wrapper{
-    background: var(--primary);
-}
-.img-wrapper h3{
-    font-family: var(--main-font);
-    font-size: var(--heading3);
-}
-
-/* Content in help.blade.php */
-.help-header-div{
-    background: var(--bg-color);
-}
-.help-wrapper h3{
-    font-family: var(--main-font);
-    font-size: var(--heading3);
-}
-
-/* Content in Developer.blade.php */
-.card-header, .list-header{
-    background: var(--primary) !important;
-}
-
-/* Simple and Engaging Hover Style for Dropdown */
-.dropdown button {
-    transition: color 0.4s, background-color 0.4s;
-}
-.dropdown button:hover {
-    color: var(--primary);
-    background-color: #fbd040; /* Light background on hover */
-}
-.dropdown button:focus {
-    color: var(--primary);
-}
-.dropdown-menu {
-    background: var(--secondary) !important;
-}
-
-/* views/layout custom styling */
-/* Modal Content Styling*/
-.modal-header{
-    background: var(--primary);
-}
-.modal-header h4{
-    font-family: var(--main-font);
-    font-size: var(--heading4);
-}
-
-.modal-body label{
-    font-size: var(--heading5);
-}
-
-.modal-body input{
-    font-size: var(--paragraph);
-}
-.modal-body textarea{
-    font-size: var(--paragraph);
-}
-
-.modal-footer{
-    background: var(--primary) !important;
-}
-
-.modal-footer .close{
-    background: var(--bg-color);
-    letter-spacing: 1px;
-}
-.modal-footer .close:hover{
-    background: var(--second-accent);
-}
-.modal-footer .save{
-    background: var(--primary-content);
-    letter-spacing: 1px;
-}
-.modal-footer .save:hover{
-    background: var(--secondary-content);
+    border: 6px solid var(--primary-content);
+    background-color: var(--secondary-content);
+    box-shadow: 0px 0px;
 }
 
 /* Main Footer Content */
 .footer-section{
-    background: linear-gradient(#401F71, #f39c12);
+    margin-top: 10rem;
+    background: var(--primary);
 }
+
+/* Mobile Devices */
+@media only screen and (max-width: 767px){
+    .main-section h1{
+        font-size: clamp(1rem, -0.5003rem + 9.3878vw, 3rem);
+    }
+}
+
+/* Tablet Devices */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+}
+
