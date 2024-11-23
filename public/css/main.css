@@ -214,5 +214,5 @@ main{
 
 /* Main Footer Content */
 .footer-section{
-    background: var(--primary);
+    background: linear-gradient(#401F71, #f39c12);
 }

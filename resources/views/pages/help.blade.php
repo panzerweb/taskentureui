@@ -16,15 +16,27 @@
 
 <div class="help-header-div py-5">
     <h1 class="text-center text-light">
-        TEAM
+        THE TASKENTURE TEAM
     </h1>
 </div>
 
-<div class="container-lg help-wrapper my-3">
-    <div class="row justify-content-center">
-        <!-- <h3 class="fw-bold text-center mt-4 mb-2">Our Team</h3> -->
-        <p class="text-center mb-4">Cooperation and Collaboration of these wonderful developers have this app a success.</p>
 
+        <div class="container mt-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h2 class="text-center">Acknowledgments</h2>
+                
+                <p class="text-muted mt-3 text-center">
+                    We extend our gratitude to our mentors, instructors, and peers for their support throughout this journey. This project is a result of teamwork and dedication, aiming to solve real-world challenges through technology.
+                </p>
+                
+            </div>
+        </div>
+        </div>
+
+    <div class="container-lg help-wrapper my-5">
+    <div class="row justify-content-center">
+        
         @foreach($devs as $dev)
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card shadow-lg border border-1">
@@ -40,10 +52,10 @@
                     <h5 class="card-title fw-bold">{{$dev['name']}}</h5>
                     <p class="card-subtitle mb-2 ">{{$dev['role']}}</p>
                     <div class="d-flex justify-content-center gap-2">
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-meta"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-tiktok"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-warning"><i class="bi bi-github"></i></a>
+                        <a href="https://goto.now/w8E4P" class="btn btn-sm btn-outline-warning"><i class="bi bi-meta"></i></a>
+                        <a href="https://www.instagram.com/" class="btn btn-sm btn-outline-warning"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/en/" class="btn btn-sm btn-outline-warning"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://github.com/" class="btn btn-sm btn-outline-warning"><i class="bi bi-github"></i></a>
                     </div>
                     <small class="text-dark d-block mt-3">Joined: 2024</small>
 
@@ -56,7 +68,7 @@
         </div>
         @endforeach
     </div>
-</div>
+    </div>
 
 
 

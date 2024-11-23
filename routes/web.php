@@ -53,8 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/FAQS', [App\Http\Controllers\HomeController::class, 'FAQS'])->name('faqs');
     //Report Bug
     Route::get('/ReportBug', [App\Http\Controllers\HomeController::class, 'ReportBug'])->name('reportbug');
-    // Developer Message
-    Route::get('/devMessage', [App\Http\Controllers\HomeController::class, 'devMessage'])->name('devmessage');
+    //Contact Us
+    Route::get('/ContactUs', [HomeController::class, 'ContactUs'])->name('contactus');
 
 });
 

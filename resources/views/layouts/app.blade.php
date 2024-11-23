@@ -158,7 +158,7 @@
                     <h5 class="fw-semibold">Community</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="{{ route('pages.help') }}" :active="request()->routeIs('pages.help')" class="nav-link p-0 text-light">Team</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('devmessage') }}" class="nav-link p-0 text-light">Developer Message</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('contactus') }}" class="nav-link p-0 text-light">Contact Us</a></li>
                     </ul>
                 </div>
             

@@ -59,9 +59,9 @@ class HomeController extends Controller
     public function ReportBug(){
         return view('pages.reportbug');
     }
-    // Developers Message
-    public function devMessage(){
-        return view('pages.devmessage');
+    // Contuct Us 
+    public function ContactUs(){
+        return view('pages.contactus');
     }
 
 }
