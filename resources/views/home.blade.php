@@ -14,15 +14,15 @@
 
 @section('content')
 
-<div class="container-lg home py-4">
+<div class="container-lg home pb-4">
     <div class="row justify-content-center">
+
         {{-- ======================================================== --}}
         {{-- Task CRUD --}}
-        <div class="col-12 col-lg-7">
-            {{-- ======================================================== --}}
+        <div class="row justify-content-center px-5 pb-3">
             {{-- Search Bar --}}
-            <form action="{{ route('tasks.search', ['context' => 'home']) }}" method="get">
-                <div class="input-group my-3">
+            <form action="{{ route('tasks.search', ['context' => 'home']) }}" method="get" class="w-100">
+                <div class="input-group my-3" style="max-width: 600px; margin: 0 auto;">
                     <input
                         type="search"
                         class="form-control form-control-md border border-2 border-dark-subtle"
@@ -35,6 +35,9 @@
                     </button>
                 </div>
             </form>
+        </div>
+        <div class="col-12 col-lg-7">
+            {{-- ======================================================== --}
 
             {{-- ======================================================== --}}
             {{-- Add Task Form --}}
@@ -159,7 +162,23 @@
             </div>
         </div>
         <div class="col-12 col-lg-5">
-            <h2 class="fw-bold">Rewards</h2>     
+            <div class="card bg-secondary-subtle">
+                <div class="card-header">
+                    <h2 class="fw-bold text-center w-100 text-light">Ranking Badges</h2>    
+                </div>
+                <div class="card-body">
+                    <!-- Display Area for all Badges -->
+                    <div class="row p-5">
+                        @foreach ($badges as $badge)
+                        <div class="col-6">
+                            <div class="card mb-3 shadow-sm">
+                                <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-2">
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+              </div>
         </div>
 
 

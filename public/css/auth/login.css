@@ -1,0 +1,72 @@
+.login-container {
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.login-card .card-header {
+    background: rgba(103, 58, 183, 0.1);
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+}
+
+.login-card .card-body {
+    padding: 2rem;
+}
+
+.form-label {
+    color: #e0e0e0;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #673ab7;
+    box-shadow: 0 0 0 0.2rem rgba(103, 58, 183, 0.25);
+    color: #fff;
+}
+
+.btn-primary {
+    background: #673ab7;
+    border: none;
+    padding: 0.5rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #7b52c7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(103, 58, 183, 0.4);
+}
+
+.btn-link {
+    color: #9575cd;
+}
+
+.btn-link:hover {
+    color: #b39ddb;
+}
+
+.form-check-label {
+    color: #e0e0e0;
+}
+
+.form-check-input:checked {
+    background-color: #673ab7;
+    border-color: #673ab7;
+} 

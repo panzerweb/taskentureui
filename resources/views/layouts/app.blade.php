@@ -42,7 +42,7 @@
         <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a class="navbar-brand text-light" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Taskenture') }}
+                    <span class="text-warning">Task</span><span class="text-light">enture</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -108,8 +108,8 @@
                         @forelse (auth()->user()->unreadNotifications as $notification)
                             <li>
                                 <div class="dropdown-item w-100 border border-2 border-warning">
-                                    <h3 class="fw-bold">Updated!</h3>
-                                    <p class="fw-bold mb-0">{{$notification->data['taskname']}}</p>
+                                    <h6 class="fw-bold">{{Auth::user()->name}} has updated task: <span class="fw-light small">{{$notification->data['old_taskname'] ?? 'Unknown Task'}}</span>:</h6>
+                                    <p class="fw-bold mb-0">Task: <span class="fw-light">{{$notification->data['taskname']}}</span></p>
                                     <p class="small my-0">Due on {{ $notification->data['due_date'] }}</p>
 
                                     {{-- Optimizing the selection --}}
@@ -146,9 +146,11 @@
         
             </div>
         </nav>
-        
+    
 
         <main class="py-0">
+            {{-- The profile section --}}
+            @include('components.profile');
             @yield('content')
         </main>
     </div>
