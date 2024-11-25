@@ -260,6 +260,7 @@ class TaskController extends Controller
     // Based on that, redirect back to the previous page (starred or home).
     //============================================
     public function currentUrl($message){
+        
         if(str_contains(url()->previous(), route('pages.starred'))){
             return redirect()->route("pages.starred")->with("success", $message);
         }
