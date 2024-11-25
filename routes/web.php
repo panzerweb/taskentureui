@@ -19,9 +19,9 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     // Home and Starred Page Routes
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/home', [TaskController::class, 'index'])->name('home');
-    Route::get('/pages/starred', [TaskController::class, 'starredIndex'])->name('pages.starred');
-    Route::get('/pages/trash', [App\Http\Controllers\TaskController::class, 'trashIndex'])->name('pages.trash');
+    Route::get('/home', [App\Http\Controllers\DisplayController::class, 'index'])->name('home');
+    Route::get('/pages/starred', [App\Http\Controllers\DisplayController::class, 'starredIndex'])->name('pages.starred');
+    Route::get('/pages/trash', [App\Http\Controllers\DisplayController::class, 'trashIndex'])->name('pages.trash');
   
     // Help Route
     Route::get('/pages/help', [App\Http\Controllers\HomeController::class, 'help'])->name('pages.help');

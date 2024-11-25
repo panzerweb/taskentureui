@@ -25,7 +25,6 @@
                 });
             </script>
         @endif
-
         @if(session('added'))
             <script>
                 const Toast = Swal.mixin({
@@ -42,6 +41,42 @@
                 Toast.fire({
                 icon: "success",
                 title: "{{session('added')}}"
+                });
+            </script>
+        @endif
+        @if(session('toggle'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "{{ session('toggle') }}"
+                }).then(() => {
+                    @if(session('level_up'))
+                        setTimeout(() => {
+                            Swal.fire({
+                                title: "{{ session('level_up') }}",
+                                width: 600,
+                                padding: "3em",
+                                color: "#716add",
+                                backdrop: `
+                                    rgba(0,0,123,0.4)
+                                    url('asset("images/misc/rocket.gif")')
+                                    left top
+                                    no-repeat
+                                `
+                            });
+                        }, 100); // Adjust delay as necessary
+                    @endif
                 });
             </script>
         @endif

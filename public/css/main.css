@@ -168,6 +168,15 @@ main{
     background: var(--secondary) !important;
 }
 
+
+/* Content in Profile section */
+.profile-section{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/banner.svg");
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+}
+
 /* views/layout custom styling */
 /* Modal Content Styling*/
 .modal-header{

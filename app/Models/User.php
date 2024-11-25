@@ -46,4 +46,23 @@ class User extends Authenticatable
         ];
     }
 
+
+    public function badges()
+    {
+        return $this->belongsToMany(Badge::class, 'user_badges', 'user_id', 'badge_id')->withTimestamps();
+    }
+
+    public function avatars()
+    {
+        return $this->belongsToMany(Avatar::class, 'user_avatars', 'user_id', 'avatar_id');
+    }
+
+    public function getAvatarImageAttribute($value)
+    {
+        $avatar = $this->avatars->last();
+        return $value ? $avatar->avatar_image : 'images/avatars/level' . $this->level . '.png';
+    }
+
+
+
 }

@@ -12,12 +12,14 @@ class DueDateNotification extends Notification
     use Queueable;
 
     protected $task;
+    protected $oldTaskName;
     /**
      * Create a new notification instance.
      */
-    public function __construct($task)
+    public function __construct($task, $oldTaskName)
     {
         $this->task = $task;
+        $this->oldTaskName = $oldTaskName;
     }
 
     /**
@@ -52,8 +54,10 @@ class DueDateNotification extends Notification
     {
         return [
             'task_id' => $this->task->id,
+            'user_id' => $this->task->user_id,
             'priority_id' => $this->task->priority ? $this->task->priority->id : null,
             'category_id' => $this->task->category ? $this->task->category->id : null,
+            'old_taskname' => $this->oldTaskName,
             'taskname'=> $this->task->taskname,
             'due_date' => $this->task->due_date,
         ];

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Badge;
 use App\Models\Trash;
+use App\Models\Avatar;
 use App\Models\Priority;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,6 +52,9 @@ class TaskController extends Controller
                 "due_date" => "nullable|date|after_or_equal: today",
             ]);
 
+            // Old Taskname to retrieve
+            $oldTaskName = $task->taskname;
+
             // Prepare the data for update
             $data = $request->only(['taskname', 'description', "priority_id", "category_id", "due_date"]);
 
@@ -65,9 +70,10 @@ class TaskController extends Controller
             // Update the task with validated input
             $task->update($data);
 
+
             //Notify the user
             $user = auth()->user();
-            $user->notify(new DueDateNotification($task));
+            $user->notify(new DueDateNotification($task, $oldTaskName));
             
 
             // Call the currentUrl function with a custom message.
@@ -113,12 +119,64 @@ class TaskController extends Controller
     //============================================
     public function toggleComplete($id){
         $task = Task::findOrFail($id);
+        $user = auth()->user();
         //Toggle the "is_completed" status
         $task->is_completed = !$task->is_completed;
         $task->save();
+
+        // Add XP if task is marked completed
+        if ($task->is_completed) {
+            $user->xp += 10; // Adjust XP points as needed
+            $user->save();
+            $this->checkLevelUp($user);
+        }
         
-        return redirect()->back()->with('success', 'Task Status updated!');
+        return redirect()->back()->with('toggle', 'Task Status updated!');
     }
+
+    protected function checkLevelUp($user)
+    {
+        $requiredXp = $user->level * 30; // Example: XP required for next level
+
+        if ($user->xp >= $requiredXp) {
+            $user->xp -= $requiredXp; // Carryover XP
+            $user->level++;
+
+
+            // Save user updates before assigning a badge
+            $user->save();
+
+            // Assign Badge for the new level (if applicable)
+            $badge = Badge::where('required_xp', '<=', $requiredXp) // Match the badge for the level
+                ->latest('required_xp')
+                ->first();
+
+            if ($badge && !$user->badges->contains($badge->id)) {
+                $user->badges()->attach($badge->id);
+            }
+            // Assign Avatar for the new level
+            $avatar = Avatar::where('level' , $user->level)->first();
+            if ($avatar && !$user->avatars->contains($avatar->id)) {
+                $user->avatars()->attach($avatar->id); // Store in `user_avatar` table
+                $user->avatar = $avatar->image; // Update the current avatar path
+                $user->save();
+            }
+            
+            session()->flash('level_up', 'Congratulations! You have leveled up to Level ' . $user->level . '!');
+
+        }else if ($user->level === 1 && is_null($user->avatar)) {
+            // Special case for new Level 1 users without an avatar
+            $levelOneAvatar = Avatar::where('level', 1)->first();
+            if ($levelOneAvatar) {
+                $user->avatars()->attach($levelOneAvatar->id);
+                $user->avatar = $levelOneAvatar->image;
+                $user->save();
+            }
+        }
+        
+
+    }
+
 
 
     //============================================
@@ -189,59 +247,11 @@ class TaskController extends Controller
 
         // Execute the query
         $tasks = $query->get();
+        // Fetch the badges in order to avoid error (This badges are unaffected by search)
+        $badges = Badge::all();
 
         // Return the view with filtered tasks
-        return view($context, ['tasks' => $tasks]);
-    }
-
-    
-    /*
-         ==========================================================
-        ||                  DISPLAY FEATURES                     ||
-        ==========================================================
-        
-        Description: 
-        The Section for all the display or view functions
-    */
-    //============================================
-    // Viewing All Tasks
-    //============================================
-    public function index() {
-        // Retrieve all tasks associated with the currently authenticated user
-        // The `auth()->id()` method gets the ID of the logged-in user
-        $tasks = Task::where('user_id', auth()->id())->get();
-        
-        // Pass the retrieved tasks to the 'home' view for rendering
-        // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
-        return view('home', compact('tasks'));
-       
-    }
-
-    //============================================
-    // Favorite Task Display
-    //============================================
-
-    public function starredIndex(){
-        // Retrieve all tasks associated with the currently authenticated user
-        // The `auth()->id()` method gets the ID of the logged-in user
-        $tasks = Task::where('user_id', auth()->id())->get();
-    
-        // Pass the retrieved tasks to the 'starred' view for rendering
-        // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
-        return view('pages.starred', compact('tasks'));
-    }
-
-    //============================================
-    // Deleted Task Display
-    //============================================
-    public function trashIndex(){
-        // Retrieve all tasks associated with the currently authenticated user
-        // The `auth()->id()` method gets the ID of the logged-in user
-        $tasks = Trash::where('user_id', auth()->id())->get();
-        
-        // Pass the retrieved tasks to the 'starred' view for rendering
-        // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
-        return view('pages.trash', compact('tasks'));
+        return view($context, ['tasks' => $tasks, 'badges' => $badges]);
     }
 
     //============================================

@@ -22,7 +22,7 @@
                     <div class="container-lg">
                         <!-- Brand Name -->
                         <a class="navbar-brand text-light fw-bold" href="{{ url('/home') }}">
-                            {{ config('app.name', 'Taskenture') }}
+                            <span class="text-warning">Task</span><span class="text-light">enture</span>
                         </a>
 
                         <!-- Toggler for Mobile View -->
