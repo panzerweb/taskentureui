@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportBugController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TaskController;
@@ -52,7 +53,10 @@ Route::middleware('auth')->group(function () {
     //User Help
     Route::get('/FAQS', [App\Http\Controllers\HomeController::class, 'FAQS'])->name('faqs');
     //Report Bug
-    Route::get('/ReportBug', [App\Http\Controllers\HomeController::class, 'ReportBug'])->name('reportbug');
+    // to display the bug report form
+    Route::get('/ReportBug', [App\Http\Controllers\ReportBugController::class, 'show'])->name('reportbug.show');
+    // to submit the bug report
+    Route::post('/ReportBug', [App\Http\Controllers\ReportBugController::class, 'submit'])->name('reportbug.submit');
     //Contact Us
     Route::get('/ContactUs', [HomeController::class, 'ContactUs'])->name('contactus');
 

@@ -63,5 +63,5 @@ class HomeController extends Controller
     public function ContactUs(){
         return view('pages.contactus');
     }
-
 }
+
