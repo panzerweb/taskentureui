@@ -30,22 +30,32 @@
                         <h3 class="fw-bold mb-0">{{ Auth::user()->name }}</h3> <!-- Center the text -->
                         <span class="small">{{ Auth::user()->email }}</span> <!-- Center the text -->
 
-                        <div class="d-flex justify-content-between align-items-end mt-3">
+                        <div class="d-flex justify-content-between flex-wrap mt-3">
                             <p class="fw-bold">Level: <span class="fw-light">{{ Auth::user()->level }}</span></p>
-                            <p class="fw-bold">XP: <span class="fw-light">{{ Auth::user()->xp }}</span></p>
+
+                            {{-- Get the specific avatar according to the level --}}
+                            @php
+                                $avatar = Auth::user()->avatars->where('level', Auth::user()->level)->first();
+                            @endphp
+
+                            <p class="fw-bold">Rank: <span class="fw-light">{{ $avatar->name ?? 'Rookie'}}</span></p>
+                            <p class="fw-bold">XP: <span class="fw-light">{{ Auth::user()->xp }} / {{ Auth::user()->level * 30 }}</span></p>
                         </div>
                         
                         <div class="progress" style="width: 100%;"> <!-- Set progress bar to take full width -->
                             <div
                                 class="progress-bar bg-warning"
                                 role="progressbar"
-                                style="width: {{ Auth::user()->xp }}%;"
+                                style="width: {{ (Auth::user()->xp / (Auth::user()->level * 30)) * 100 }}%;;"
                                 aria-valuenow="{{ Auth::user()->xp }}"
                                 aria-valuemin="0"
-                                aria-valuemax="30"
+                                aria-valuemax="{{ Auth::user()->level * 30 }}"
                             >
+                            {{ Auth::user()->xp }} / {{ Auth::user()->level * 30 }}
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>

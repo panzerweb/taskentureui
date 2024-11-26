@@ -50,7 +50,10 @@
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 3000,
+                    width: "auto",
+                    padding: "1em",
+                    color: "green",
+                    timer: 1500,
                     timerProgressBar: true,
                     didOpen: (toast) => {
                         toast.onmouseenter = Swal.stopTimer;
@@ -58,16 +61,17 @@
                     }
                 });
                 Toast.fire({
-                    icon: "success",
+                    icon: "info",
                     title: "{{ session('toggle') }}"
                 }).then(() => {
                     @if(session('level_up'))
                         setTimeout(() => {
                             Swal.fire({
-                                title: "{{ session('level_up') }}",
+                                title: "<h2 class='fs-3'>{{ session('level_up') }}</h2>",
                                 width: 600,
                                 padding: "3em",
-                                color: "#716add",
+                                color: "green",
+                                confirmButtonColor: "#F78F4B",
                                 backdrop: `
                                     rgba(0,0,123,0.4)
                                     url('asset("images/misc/rocket.gif")')
@@ -76,6 +80,22 @@
                                 `
                             });
                         }, 100); // Adjust delay as necessary
+                    @elseif(session('level_down'))
+                        setTimeout(() => {
+                                Swal.fire({
+                                    title: "<h2 class='fs-3'>{{ session('level_down') }}</h2>",
+                                    width: 600,
+                                    padding: "3em",
+                                    color: "red",
+                                    confirmButtonColor: "#F78F4B",
+                                    backdrop: `
+                                        rgba(0,0,123,0.4)
+                                        url('asset("images/misc/rocket.gif")')
+                                        left top
+                                        no-repeat
+                                    `
+                                });
+                            }, 100); // Adjust delay as necessary
                     @endif
                 });
             </script>

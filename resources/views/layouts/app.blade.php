@@ -29,6 +29,7 @@
     {{-- Links --}}
     <link rel="stylesheet" href="{{ asset('css/behavior.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Scripts -->
@@ -57,6 +58,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto d-flex justify-content-center">
                         {{-- Page Links --}}
+                        <li class="nav-item mx-auto">
+                            <x-navlink href="#">Events</x-navlink>
+                        </li>
                         <li class="nav-item mx-auto">
                             <x-navlink href="{{ route('home') }}" :active="request()->routeIs('home') || request()->routeIs('tasks.search') && request()->route('context') === 'home'">My List</x-navlink>
                         </li>
@@ -104,11 +108,18 @@
                     <svg xmlns="http://www.w3.org/2000/svg" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" width="24" height="24" fill="currentColor" style="cursor: pointer;" class="bi bi-bell-fill text-warning" viewBox="0 0 16 16">
                         <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
                     </svg>
-                    <ul class="dropdown-menu py-0 rounded-1 border border-2 border-warning" aria-labelledby="notificationDropdown" style="width: auto;">
+                    <ul class="dropdown-menu py-0 rounded-1 border border-2 overflow-auto mt-4"  aria-labelledby="notificationDropdown" style="width: auto; height: 400px;">
                         @forelse (auth()->user()->unreadNotifications as $notification)
                             <li>
-                                <div class="dropdown-item w-100 border border-2 border-warning">
-                                    <h6 class="fw-bold">{{Auth::user()->name}} has updated task: <span class="fw-light small">{{$notification->data['old_taskname'] ?? 'Unknown Task'}}</span>:</h6>
+                                <div class="dropdown-item w-100 border border-2">
+                                    <div class="d-flex gap-3 justify-content-end align-items-end">
+                                        <h6 class="fw-bold">{{Auth::user()->name}} has updated task: <span class="fw-light small">{{$notification->data['old_taskname'] ?? 'Unknown Task'}}</span>:</h6>
+                                        <a href="{{route('notification.delete', $notification->id)}}" class="mx-1 my-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16" style="color: #6635B1;">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
                                     <p class="fw-bold mb-0">Task: <span class="fw-light">{{$notification->data['taskname']}}</span></p>
                                     <p class="small my-0">Due on {{ $notification->data['due_date'] }}</p>
 
@@ -125,15 +136,10 @@
 
 
                                     <p class="fw-semibold mb-0">Updated at: </p>
-                                    <div class="d-flex gap-2 align-items-center">
+                                    <div class="d-flex gap-2 justify-content-around align-items-center">
                                         <p class="small">{{ $notification->updated_at }}</p>
-
-                                        <a href="{{route('notification.delete', $notification->id)}}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill text-warning m-1" viewBox="0 0 16 16">
-                                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-                                            </svg>
-                                        </a>
                                     </div>
+                                    
                                 </div>
                             </li>
                         @empty

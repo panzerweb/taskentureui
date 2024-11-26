@@ -129,9 +129,16 @@ class TaskController extends Controller
             $user->xp += 10; // Adjust XP points as needed
             $user->save();
             $this->checkLevelUp($user);
+            session()->flash('toggle', '+10 xp');
+        }
+        else if(!$task->is_completed){
+            $user->xp -= 10; // Adjust XP points as needed
+            $user->save();
+            $this->checkLevelUp($user);
+            session()->flash('toggle', '-10 xp');
         }
         
-        return redirect()->back()->with('toggle', 'Task Status updated!');
+        return redirect()->back();
     }
 
     protected function checkLevelUp($user)
@@ -164,7 +171,37 @@ class TaskController extends Controller
             
             session()->flash('level_up', 'Congratulations! You have leveled up to Level ' . $user->level . '!');
 
-        }else if ($user->level === 1 && is_null($user->avatar)) {
+        }
+        // Check for Rank-Down
+        while ($user->xp < 0 && $user->level > 1) {
+            $user->level--; // Rank down
+            $user->xp += ($user->level * 30); // Add the required XP for the previous level
+
+            // Remove the Avatar for the current level
+            $currentAvatar = Avatar::where('level', $user->level + 1)->first();
+            if ($currentAvatar) {
+                $user->avatars()->detach($currentAvatar->id);
+            }
+
+            // Update the avatar to the previous level
+            $previousAvatar = Avatar::where('level', $user->level)->first();
+            if ($previousAvatar) {
+                $user->avatar = $previousAvatar->image;
+            }
+
+            // Remove the Badge for the current level
+            $currentBadge = Badge::where('required_xp', '<=', $requiredXp)->latest('required_xp')->first();
+            if ($currentBadge) {
+                $user->badges()->detach($currentBadge->id);
+            }
+
+            // Save updated level and avatar
+            $user->save();
+
+            session()->flash('level_down', 'You have ranked down to Level ' . $user->level . '.');
+        }
+        
+        if ($user->level === 1 && is_null($user->avatar)) {
             // Special case for new Level 1 users without an avatar
             $levelOneAvatar = Avatar::where('level', 1)->first();
             if ($levelOneAvatar) {
@@ -246,7 +283,7 @@ class TaskController extends Controller
         } 
 
         // Execute the query
-        $tasks = $query->get();
+        $tasks = $query->paginate(5);
         // Fetch the badges in order to avoid error (This badges are unaffected by search)
         $badges = Badge::all();
 
