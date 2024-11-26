@@ -54,9 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/FAQS', [App\Http\Controllers\HomeController::class, 'FAQS'])->name('faqs');
     //Report Bug
     // to display the bug report form
-    Route::get('/ReportBug', [App\Http\Controllers\ReportBugController::class, 'show'])->name('reportbug.show');
+    Route::get('/ReportBug', [App\Http\Controllers\ReportBugController::class, 'show'])->name('pages.ReportBug');
     // to submit the bug report
-    Route::post('/ReportBug', [App\Http\Controllers\ReportBugController::class, 'submit'])->name('reportbug.submit');
+    Route::post('/ReportBug', [App\Http\Controllers\ReportBugController::class, 'submit']);
     //Contact Us
     Route::get('/ContactUs', [HomeController::class, 'ContactUs'])->name('contactus');
 

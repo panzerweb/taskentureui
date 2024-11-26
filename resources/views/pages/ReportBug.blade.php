@@ -25,7 +25,7 @@
         </p>
 
         <!-- Bug Report Form -->
-        <form action="{{ route('reportbug.submit') }}" method="POST" class="mt-4">
+        <form action="{{ route('pages.ReportBug') }}" method="POST" class="mt-4">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Your Name</label>
@@ -46,7 +46,11 @@
                 <button type="submit" class="btn btn-warning">Submit Bug Report</button>
             </div>
         </form>
+        {{-- Toast for every message --}}
 
+            @include('components.toast')
+
+        {{-- ======================================================== --}}
         <!-- Display Validation Errors -->
         <!-- @if ($errors->any())
         <div class="alert alert-danger mt-3">
