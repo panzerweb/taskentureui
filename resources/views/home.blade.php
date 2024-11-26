@@ -36,7 +36,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-7 mt-5">
             {{-- ======================================================== --}
 
             {{-- ======================================================== --}}
@@ -103,7 +103,7 @@
                             @elseif ($task->priority_id == 3)
                                 <span class="badge text-bg-success">Low</span>
                             @else
-                                <span class="badge text-bg-secondary">Null</span>
+                                <span class="badge text-bg-secondary"></span>
                             @endif
 
                             {{-- Category --}}
@@ -114,7 +114,7 @@
                             @elseif ($task->category_id == 3)
                                 <span class="badge bg-info text-dark">Academic</span>
                             @else
-                                <span class="badge bg-secondary">Null</span>
+                                <span class="badge bg-secondary"></span>
                             @endif
                             
                         </div>
@@ -159,20 +159,28 @@
                 @else
                     <p class="text-center lead bg-light rounded-3 p-3">No Record Found</p>
                 @endif
+                {{$tasks->links('pagination::bootstrap-5')}}
+
             </div>
         </div>
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-5 mt-5">
             <div class="card bg-secondary-subtle">
                 <div class="card-header">
-                    <h2 class="fw-bold text-center w-100 text-light">Ranking Badges</h2>    
+                    <h2 class="fw-bold text-center w-100 text-light">Events</h2>    
                 </div>
                 <div class="card-body">
                     <!-- Display Area for all Badges -->
-                    <div class="row p-5">
+                    <div class="row justify-content-center align-items-center flex-wrap p-3">
                         @foreach ($badges as $badge)
-                        <div class="col-6">
-                            <div class="card mb-3 shadow-sm">
+                        <div class="col-6 col-md-4 col-lg-6">
+                            <div class="card badge-card mb-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#badgeModal{{$badge->id}}">
+                                {{-- Badge Image --}}
                                 <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-2">
+
+                                {{-- Badge Details --}}
+                                <div class="card-img-overlay text-center">
+                                    <h5 class="text-dark fw-bold text-wrap">{{$badge->name}}</h5>
+                                  </div>
                             </div>
                         </div>
                         @endforeach
