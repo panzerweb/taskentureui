@@ -123,6 +123,45 @@ main{
     color: var(--dark);
 }
 
+.badge-card {
+    position: relative;
+    overflow: hidden; /* Ensures overlay stays within bounds */
+}
+
+.badge-card img {
+    transition: transform 0.3s ease-in-out; /* Optional: zoom effect */
+}
+
+/* Initial state of overlay */
+.badge-card .card-img-overlay {
+    position: absolute;
+    bottom: -100%; /* Start completely out of view */
+    left: 0;
+    right: 0;
+    height: 100%; /* Full height */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0; /* Hidden by default */
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+/* On hover */
+.badge-card:hover .card-img-overlay {
+    bottom: 0; /* Slide into view */
+    opacity: 1; /* Make it visible */
+}
+
+.badge-card:hover img {
+    transform: scale(1.05); /* Optional: slight zoom effect on image */
+}
+
 /* Content in trash.blade.php */
 .deleted-count-wrapper{
     background: var(--bg-color);

@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/bookindex', function () {
+    return view('/pages/BookIndex');
+})->name('IndexBook');
 
 // Authentication Routes
 Auth::routes();

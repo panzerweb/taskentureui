@@ -10,6 +10,41 @@
  
 --}}
 
+
+<style>
+    /* General Tab Styling */
+.tab-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Active Tab */
+  .tab-button.active {
+    background-color: #FEE715; /* Bright Yellow */
+    color: #4B4B4B; /* Dark Gray */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Inactive Tab */
+  .tab-button.inactive {
+    background-color: #E5E5E5; /* Light Gray */
+    color: #4B4B4B; /* Dark Gray */
+  }
+  
+  /* Hover Effect */
+  .tab-button:hover {
+    background-color: #FFD700; /* Gold */
+  }
+
+
+</style>
+
 {{-- Modal for Editing --}}
 
 @foreach ($tasks as $task)   
@@ -159,8 +194,14 @@
             
                                     <div class="mt-3">
                                         <p class="fw-bold">Level: <span class="fw-light">{{ Auth::user()->level }}</span></p>
-                                        <p class="fw-bold">XP: <span class="fw-light">{{ Auth::user()->xp }}</span></p>
+                                        <p class="fw-bold">XP: <span class="fw-light">{{ Auth::user()->xp }} / {{ Auth::user()->level * 30 }}</span></p>
                                     </div>
+                                    <a href="{{route('IndexBook')}}">
+                                        <button>
+                                            <img src="{{asset('/images/misc/book.png')}}" alt="">
+                                            Guide Index
+                                        </button>
+                                    </a>
                                     
                                 </div>
                             </div>
@@ -168,9 +209,9 @@
                         <div class="col-12 bg-secondary-subtle rounded-2">
                             {{-- Filter Buttons Container --}}
                             <div class="d-flex row justify-content-center">
-                                <div class="btn-group mb-3 mx-0 px-0" role="group" aria-label="Basic example" id="rewardBtnContainer">
-                                    <button type="button" class="btn btn-outline-warning active" id="avatarBtn" onclick="filterItems('avatars')">Avatars</button>
-                                    <button type="button" class="btn btn-outline-warning" id="badgeBtn" onclick="filterItems('badges')">Badges</button>
+                                <div class="btn-group mb-3 mx-0 px-0 tab-buttons border border-1 border-dark" role="group" aria-label="Basic example" id="rewardBtnContainer">
+                                    <button type="button" class="btn active tab-button border border-1 border-dark" id="avatarBtn" onclick="filterItems('avatars')">Avatars</button>
+                                    <button type="button" class="btn tab-button border border-1 border-dark" id="badgeBtn" onclick="filterItems('badges')">Badges</button>
                                 </div>
                             </div>
 
@@ -179,13 +220,9 @@
                                 {{-- Avatars --}}
                                 @foreach (Auth::user()->avatars->chunk(ceil(Auth::user()->avatars->count() / 3)) as $chunk)
                                     @foreach ($chunk as $avatars)
-                                    <div class="col-6 col-md-4 item avatars">
+                                    <div class="col-6 col-md-4 item avatars" style="cursor: pointer">
                                         <div class="card mb-3 shadow-sm">
-                                            <img src="{{ asset($avatars->image) }}" alt="Avatar Image" class="img-fluid text-center my-2">
-                                            
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{$avatars->name}}</h5>
-                                            </div>
+                                            <img src="{{ asset($avatars->image) }}" alt="Avatar Image" class="img-fluid text-center my-0 rounded-2">
                                         </div>
                                     </div>
                                     @endforeach
@@ -194,13 +231,9 @@
                                 {{-- Badges --}}
                                 @foreach (Auth::user()->badges->chunk(ceil(Auth::user()->badges->count() / 3)) as $chunk)
                                     @foreach ($chunk as $badge)
-                                    <div class="col-6 col-md-4 item badges" style="display: none">
+                                    <div class="col-6 col-md-4 item badges" style="display: none;cursor: pointer">
                                         <div class="card mb-3 shadow-sm">
-                                            <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-2">
-                                            
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{$badge->name}}</h5>
-                                            </div>
+                                            <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-0 rounded-2">
                                         </div>
                                     </div>
                                     @endforeach
@@ -256,3 +289,34 @@
         filterItems('avatars');
     })
 </script>
+
+
+{{-- Modal for each badges, to show details --}}
+<!-- Modal -->
+@foreach ($badges as $badge)
+<div class="modal fade" id="badgeModal{{$badge->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Badges</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row justify-content-center align-items-center p-3">
+                <div class="col-6 mx-auto">
+                    {{-- Badge Image --}}
+                    <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-2">
+
+                    {{-- Badge Details --}}
+                    <h4 class="text-dark text-center fw-bold">{{$badge->name}}</h4>
+                    <p class="text-dark text-center fw-bold">{{$badge->description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+@endforeach

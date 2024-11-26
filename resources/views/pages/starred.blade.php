@@ -139,6 +139,8 @@
                 @else
                     <p class="text-center lead bg-light rounded-3 p-3">No Record Found</p>
                 @endif
+                {{$tasks->links('pagination::bootstrap-5')}}
+
                 </div>
             </div>
     
