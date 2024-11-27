@@ -74,4 +74,27 @@
         </div>
     </div>
 </div>
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-5">
+            <h2>Book Index?</h2>
+            <div class="accordion mt-4" id="faqAccordion">
+
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingIndex">
+                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseIndex">
+                            What is the Book Index?
+                        </button>
+                    </h2>
+                    <div id="collapseIndex" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                        "The book index is a feature that provides detailed information about Badges, Avatars, and Shops (soon). 
+                        It's like an in-game guide that helps players find what they’re looking for. You can access <a href="#" class="index">Index</a> here."
+                        </div>
+                    </div>
+                </div>
+
 @endsection
