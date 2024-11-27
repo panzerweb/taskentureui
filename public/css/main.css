@@ -193,17 +193,17 @@ main{
 }
 
 /* Simple and Engaging Hover Style for Dropdown */
-.dropdown button {
+.option-dropdown button {
     transition: color 0.4s, background-color 0.4s;
 }
-.dropdown button:hover {
+.option-dropdown button:hover {
     color: var(--primary);
     background-color: #fbd040; /* Light background on hover */
 }
-.dropdown button:focus {
+.option-dropdown button:focus {
     color: var(--primary);
 }
-.dropdown-menu {
+.option-dropdown-menu {
     background: var(--secondary) !important;
 }
 

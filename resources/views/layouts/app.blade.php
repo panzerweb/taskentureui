@@ -54,10 +54,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <!-- Other nav items can go here -->
-                    </ul>
-        
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto d-flex justify-content-center">
                         {{-- Page Links --}}
                         <li class="nav-item mx-auto">
                             <x-navlink href="#">Events</x-navlink>
@@ -71,6 +67,24 @@
                         <li class="nav-item mx-auto">
                             <x-navlink href="{{ route('pages.trash') }}" :active="request()->routeIs('pages.trash') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.trash'">Trash</x-navlink>
                         </li>
+                    </ul>
+        
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto d-flex justify-content-center gap-3">
+                        <li class="nav-item mx-auto">
+                            {{-- Gold Coins and Diamonds --}}
+                            <span class="text-dark bg-secondary-subtle p-2 rounded-2 border border-3 border-dark"> 
+                                {{ Auth::user()->coins->sum('gold_coins') }}
+                            </span>
+                            <img src="{{asset('images/misc/gold_coin.svg')}}" alt="">
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <span class="text-dark bg-secondary-subtle p-2 rounded-2 border border-3 border-dark">
+                                {{ Auth::user()->coins->sum('diamonds') }}
+                            </span>
+                            <img src="{{asset('images/misc/diamond.svg')}}" alt="">
+                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -148,9 +162,11 @@
                                 <a class="dropdown-item" href="#">No new notifications</a>
                             </li>
                         @endforelse
+
                     </ul>
                 </div>
-        
+
+
             </div>
         </nav>
     

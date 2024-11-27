@@ -7,8 +7,10 @@ use App\Models\Badge;
 use App\Models\Trash;
 use App\Models\Avatar;
 use App\Models\Priority;
+use App\Models\UserCoin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Dotenv\Exception\ValidationException;
 use App\Notifications\DueDateNotification;
 
@@ -127,6 +129,14 @@ class TaskController extends Controller
         // Add XP if task is marked completed
         if ($task->is_completed) {
             $user->xp += 10; // Adjust XP points as needed
+            // Add Coins
+                UserCoin::create([
+                    'user_id' => Auth::id(),
+                    'gold_coins' => random_int(5,10),
+                    'diamonds' => 0,
+                    'task_id' => $task->id,
+                    'earned_at' => now(),
+                ]);
             $user->save();
             $this->checkLevelUp($user);
             session()->flash('toggle', '+10 xp');
@@ -261,7 +271,7 @@ class TaskController extends Controller
     }
 
     //============================================
-    // Search Function
+    // Search and Filter Function
     //============================================
     public function search(Request $request, $context)
     {
@@ -288,6 +298,32 @@ class TaskController extends Controller
         $badges = Badge::all();
 
         // Return the view with filtered tasks
+        return view($context, ['tasks' => $tasks, 'badges' => $badges]);
+    }
+
+    public function filter(Request $request, $context){
+        $query = Task::where('user_id', auth()->id());
+
+        // Apply priority filters
+        if ($request->has('priority')) {
+            $query->whereIn('priority_id', $request->priority);
+        }
+
+        // Apply category filters
+        if ($request->has('category')) {
+            $query->whereIn('category_id', $request->category);
+        }
+
+        // Apply search term
+        if ($request->filled('search')) {
+            $query->where('taskname', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('description', 'LIKE', '%' . $request->search . '%');
+        }
+
+        // Paginate results
+        $tasks = $query->paginate(5);
+        $badges = Badge::all();
+
         return view($context, ['tasks' => $tasks, 'badges' => $badges]);
     }
 

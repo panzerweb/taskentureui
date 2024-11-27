@@ -63,4 +63,8 @@ class DisplayController extends Controller
         // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
         return view('pages.trash', compact('tasks'));
     }
+
+    public function userIndex(){
+        return view('pages.useredit');
+    }
 }

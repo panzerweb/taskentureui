@@ -47,6 +47,44 @@
                     the task is a favorite to search --}}
                 {{-- ======================================================== --}}
                 <div class="wrapper p-3 rounded-3 shadow border border-2 border-dark-subtle">
+                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                        <h2 class="fw-bold mt-4 mb-3">Tasks</h2>
+                        {{-- Filter for Priority and Categories --}}
+                        <div class="dropdown my-3 filter-dropdown">
+                            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter
+                            </button>
+                            <form action="{{ route('tasks.filter', ['context' => 'pages.starred']) }}" method="GET" class="dropdown-menu p-3">
+                                <h6 class="dropdown-header">Priority</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="priority[]" value="1" id="highPriority">
+                                    <label class="form-check-label" for="highPriority">High</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="priority[]" value="2" id="mediumPriority">
+                                    <label class="form-check-label" for="mediumPriority">Medium</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="priority[]" value="3" id="lowPriority">
+                                    <label class="form-check-label" for="lowPriority">Low</label>
+                                </div>
+                                <h6 class="dropdown-header mt-3">Category</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="category[]" value="1" id="personalCategory">
+                                    <label class="form-check-label" for="personalCategory">Personal</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="category[]" value="2" id="professionalCategory">
+                                    <label class="form-check-label" for="professionalCategory">Professional</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="category[]" value="3" id="academicCategory">
+                                    <label class="form-check-label" for="academicCategory">Academic</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
+                            </form>
+                        </div>
+                    </div>
                 @if($tasks->isNotEmpty() && $tasks->filter(fn($task) => $task->is_favorite)->isNotEmpty())
                 @foreach ($tasks as $task)
                 @if ($task->is_favorite)
@@ -102,6 +140,9 @@
                                 <span class="badge bg-secondary">Null</span>
                             @endif
                         
+                            {{-- Due Date --}}
+                            <span class="badge text-bg-warning">{{$task->due_date}}</span>
+                            
                         </div>
                         </form>
     

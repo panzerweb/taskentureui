@@ -194,16 +194,22 @@
             
                                     <div class="mt-3">
                                         <p class="fw-bold">Level: <span class="fw-light">{{ Auth::user()->level }}</span></p>
+                                        <p class="fw-bold">Rank: <span class="fw-light">{{ $avatar->name ?? 'Rookie'}}</span></p>
                                         <p class="fw-bold">XP: <span class="fw-light">{{ Auth::user()->xp }} / {{ Auth::user()->level * 30 }}</span></p>
                                     </div>
                                     <a href="{{route('IndexBook')}}">
-                                        <button>
-                                            <img src="{{asset('/images/misc/book.png')}}" alt="">
+                                        <button class="btn border border-2 border-dark">
+                                            <img src="{{asset('/images/misc/book.svg')}}" alt="">
                                             Guide Index
                                         </button>
-                                    </a>
-                                    
+                                    </a>              
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="bio" class="form-label">Bio</label>
+                                <textarea class="form-control" name="bio" id="bio" rows="3">{{Auth::user()->bio}}</textarea>
                             </div>
                         </div>
                         <div class="col-12 bg-secondary-subtle rounded-2">
@@ -251,6 +257,13 @@
                 >
                     Close
                 </button>
+
+                    <a href="{{route('pages.useredit'), Auth::user()->id}}">
+                        <button type="submit" class="btn text-light fw-semibold save">
+                            Edit Profile
+                        </button>
+                    </a>
+
             </div>
         </div>
     </div>
@@ -289,6 +302,8 @@
         filterItems('avatars');
     })
 </script>
+
+
 
 
 {{-- Modal for each badges, to show details --}}

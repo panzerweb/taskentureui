@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bio',
     ];
 
     /**
@@ -63,6 +64,9 @@ class User extends Authenticatable
         return $value ? $avatar->avatar_image : 'images/avatars/level' . $this->level . '.png';
     }
 
+    public function coins(){
+        return $this->hasMany(UserCoin::class);
+    }
 
 
 }
