@@ -290,6 +290,9 @@ class TaskController extends Controller
         // Start with a base query
         $query = Task::query();
 
+        // Always filter by the authenticated user
+        $query->where('user_id', auth()->id());
+
         // Apply context-specific filters
         if($context == 'pages.starred'){
             $query->where('is_favorite', 1);
