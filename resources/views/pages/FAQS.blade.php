@@ -128,7 +128,7 @@
                     <div id="collapseIndex" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                         "The book index is a feature that provides detailed information about Badges, Avatars, and Shops (soon). 
-                        It's like an in-game guide that helps players find what they’re looking for. You can access <a href="#" class="index">Index</a> here."
+                        It's like an in-game guide that helps players find what they’re looking for. You can access <a href="#" class="index" style="color: #870680">Index</a> here."
                         </div>
                     </div>
                 </div>
