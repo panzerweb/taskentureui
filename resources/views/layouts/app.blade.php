@@ -36,11 +36,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> {{-- Sweet Alert Script --}}
     @viteReactRefresh
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
 
-        <nav class="navbar navbar-expand-md shadow-sm">
+        <nav class="navbar navbar-expand-lg shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a class="navbar-brand text-light" href="{{ url('/home') }}">
                     <span class="text-warning">Task</span><span class="text-light">enture</span>
@@ -119,23 +120,32 @@
         
                 <!-- Notification Icon outside the collapsible navbar -->
                 <div class="dropdown dropstart position-relative ms-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" width="24" height="24" fill="currentColor" style="cursor: pointer;" class="bi bi-bell-fill text-warning" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" 
+                        width="24" height="24" fill="currentColor" style="cursor: pointer;" 
+                        class="bi bi-bell-fill text-warning" viewBox="0 0 16 16">
                         <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
                     </svg>
-                    <ul class="dropdown-menu py-0 rounded-1 border border-2 overflow-auto mt-4"  aria-labelledby="notificationDropdown" style="width: auto; height: 400px;">
+                    <ul class="dropdown-menu py-1 px-1 rounded-1 border border-2 overflow-auto mt-4 shadow-sm" aria-labelledby="notificationDropdown" 
+                        style="max-width: 500px; max-height: 350px;">
                         @forelse (auth()->user()->unreadNotifications as $notification)
                             <li>
-                                <div class="dropdown-item w-100 border border-2">
-                                    <div class="d-flex gap-3 justify-content-end align-items-end">
-                                        <h6 class="fw-bold">{{Auth::user()->name}} has updated task: <span class="fw-light small">{{$notification->data['old_taskname'] ?? 'Unknown Task'}}</span>:</h6>
-                                        <a href="{{route('notification.delete', $notification->id)}}" class="mx-1 my-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16" style="color: #6635B1;">
+                                <div class="dropdown-item border border-1 rounded-2 p-2 mb-2">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="fw-bold text-truncate" style="max-width: 200px;">
+                                            {{Auth::user()->name}} updated task:
+                                            <span class="fw-light small text-muted">
+                                                {{$notification->data['old_taskname'] ?? 'Unknown Task'}}
+                                            </span>
+                                        </h6>
+                                        <a href="{{route('notification.delete', $notification->id)}}" class="text-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+                                                class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
                                             </svg>
                                         </a>
                                     </div>
-                                    <p class="fw-bold mb-0">Task: <span class="fw-light">{{$notification->data['taskname']}}</span></p>
-                                    <p class="small my-0">Due on {{ $notification->data['due_date'] }}</p>
+                                    <p class="small mb-1">Task: <span class="text-muted">{{$notification->data['taskname']}}</span></p>
+                                    <p class="small mb-1">Due on: <span class="text-muted">{{ $notification->data['due_date'] }}</span></p>
 
                                     {{-- Optimizing the selection --}}
                                     @php
@@ -145,34 +155,25 @@
                                         $category = $categoryMap[$notification->data['category_id']] ?? 'Null';
                                     @endphp
 
-                                    <p class="fw-semibold mb-0">Priority: <span class="fw-light">{{ $priority }}</span></p>
-                                    <p class="fw-semibold mb-0">Category: <span class="fw-light">{{ $category }}</span></p>
-
-
-                                    <p class="fw-semibold mb-0">Updated at: </p>
-                                    <div class="d-flex gap-2 justify-content-around align-items-center">
-                                        <p class="small">{{ $notification->updated_at }}</p>
-                                    </div>
-                                    
+                                    <p class="small mb-1">Priority: <span class="text-muted">{{ $priority }}</span></p>
+                                    <p class="small mb-1">Category: <span class="text-muted">{{ $category }}</span></p>
+                                    <p class="text-muted small mb-0">Updated at: {{ $notification->updated_at }}</p>
                                 </div>
                             </li>
                         @empty
                             <li>
-                                <a class="dropdown-item" href="#">No new notifications</a>
+                                <a class="dropdown-item text-center text-muted" href="#">No new notifications</a>
                             </li>
                         @endforelse
-
                     </ul>
                 </div>
-
+                
 
             </div>
         </nav>
     
 
         <main class="py-0">
-            {{-- The profile section --}}
-            @include('components.profile');
             @yield('content')
         </main>
     </div>

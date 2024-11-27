@@ -55,6 +55,8 @@
 
 html {
     font-size: 1rem !important; /* Set base font size to 16px */
+    margin: 0;
+    padding: 0;
 }
 
 /* Header */
@@ -95,7 +97,7 @@ p{
 
 
 body {
-    height: 100%;
+    height: auto;
     background-image:
     linear-gradient(to bottom, 
     rgba(64, 31, 113, 0.785), /* #401f71 */
@@ -112,8 +114,9 @@ body {
     rgba(135, 6, 128, 1)   /* #870680 */),
     url('../images/bg-1.svg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-blend-mode: multiply;
+    overflow-x: hidden;
 }
 
 
@@ -144,9 +147,24 @@ body {
     box-shadow: 0px 0px;
 }
 
+.objective-section{
+    background: var(--bg-color);
+    padding-bottom: 10rem;
+    margin-top: 10rem;
+}
+
+marquee{
+    width: 100%;
+    height: 100px;
+    background: var(--primary-content);
+}
+marquee span{
+    font-size: var(--heading1);
+    font-family: var(--main-font);
+}
+
 /* Main Footer Content */
 .footer-section{
-    margin-top: 10rem;
     background: var(--primary);
 }
 

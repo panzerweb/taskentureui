@@ -14,6 +14,9 @@
 
 @section('content')
 
+{{-- The profile section --}}
+@include('components.profile');
+
 <div class="container-lg home pb-4">
     <div class="row justify-content-center">
 

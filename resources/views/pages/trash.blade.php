@@ -13,6 +13,8 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- The profile section --}}
+@include('components.profile');
 
 <div class="py-4">
     <h1 class="display-3 text-center">
@@ -101,6 +103,12 @@
     {{-- Toast for every message --}}
 
     @include('components.toast')
+
+    {{-- ======================================================== --}}
+    {{-- ======================================================== --}}
+    {{-- Modal for Editing --}}
+
+    @include('layouts.modal')
 
     {{-- ======================================================== --}}
     

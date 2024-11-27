@@ -6,6 +6,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Models\Dev;
+use App\Models\Developer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,25 @@ Route::get('/', function () {
 Route::get('/bookindex', function () {
     return view('/pages/BookIndex');
 })->name('IndexBook');
+
+// Unlogged in users pages
+Route::get('/outside/faqs', function () {
+    return view('/outside/faqs');
+})->name('outside.faqs');
+
+Route::get('/outside/reportbug', function () {
+    return view('/outside/reportbug');
+})->name('outside.reportbug');
+
+Route::get('/outside/contactus', function () {
+    return view('/outside/contactus');
+})->name('outside.contactus');
+
+Route::get('/outside/help', function () {
+    return view('/outside/help', [
+        "devs" => Developer::allDevs(),
+    ]);
+})->name('outside.help');
 
 // Authentication Routes
 Auth::routes();

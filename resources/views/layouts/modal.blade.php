@@ -209,7 +209,7 @@
                         <div class="col-12">
                             <div class="mb-3">
                                 <label for="bio" class="form-label">Bio</label>
-                                <textarea class="form-control" name="bio" id="bio" rows="3">{{Auth::user()->bio}}</textarea>
+                                <textarea class="form-control border border-2 border-dark" name="bio" id="bio" rows="3">{{Auth::user()->bio}}</textarea>
                             </div>
                         </div>
                         <div class="col-12 bg-secondary-subtle rounded-2">
