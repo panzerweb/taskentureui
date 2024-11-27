@@ -4,6 +4,7 @@ use App\Http\Controllers\ReportBugController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 use App\Models\Dev;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\DisplayController::class, 'index'])->name('home');
     Route::get('/pages/starred', [App\Http\Controllers\DisplayController::class, 'starredIndex'])->name('pages.starred');
     Route::get('/pages/trash', [App\Http\Controllers\DisplayController::class, 'trashIndex'])->name('pages.trash');
-  
+    Route::get('/pages/useredit', [App\Http\Controllers\DisplayController::class, 'userIndex'])->name('pages.useredit');
+    
+
     // Help Route
     Route::get('/pages/help', [App\Http\Controllers\HomeController::class, 'help'])->name('pages.help');
     Route::get('/pages/help/{id}', [App\Http\Controllers\HomeController::class, 'findDevs'])->name('pages.developer');
@@ -34,6 +37,8 @@ Route::middleware('auth')->group(function () {
     // Task CRUD and Actions
     Route::post('/create-task', [TaskController::class, 'createTask']);
     Route::put('/edit-task/{task}', [TaskController::class, 'editTask'])->name('tasks.edit');
+    // Edit user
+    Route::put('/edit-user/{user}', [UserController::class, 'editUser'])->name('user.edit');
 
     Route::post('/toggle-complete/{id}', [TaskController::class, 'toggleComplete'])->name('tasks.toggleComplete');
     Route::post('/tasks/{id}/toggle-complete', [TaskController::class, 'toggleComplete'])->name('tasks.toggleComplete');
@@ -43,6 +48,9 @@ Route::middleware('auth')->group(function () {
 
     //Task Search
     Route::get('/tasks/search/{context}', [TaskController::class, 'search'])->name('tasks.search');
+    // Filter for categories and priorities
+    Route::get('/tasks/filter/{context}', [TaskController::class, 'filter'])->name('tasks.filter');
+
 
     //Soft Delete
     Route::delete('/delete-task/{id}', [TaskController::class, 'deleteTask'])->name('tasks.delete');
