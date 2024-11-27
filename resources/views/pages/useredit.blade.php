@@ -2,8 +2,12 @@
 
 @section('content')
 
-
-<div class="container-lg">
+<div class="help-header-div py-5">
+    <h1 class="text-center text-light">
+        Edit Profile
+    </h1>
+</div>
+<div class="container-lg my-5">
     <div class="row justify-content-center">
         <form action="{{ route('user.edit', Auth::user()->id) }}" method="post">
             @csrf

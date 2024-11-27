@@ -14,6 +14,9 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- The profile section --}}
+@include('components.profile');
+
 
 <div class="py-4">
     <h1 class="display-3 text-center">
@@ -175,11 +178,13 @@
     
                         {{-- ======================================================== --}}
                     </div>
+                    
                 @endif 
                 @endforeach
                 @else
                     <p class="text-center lead bg-light rounded-3 p-3">No Record Found</p>
                 @endif
+
                 {{$tasks->links('pagination::bootstrap-5')}}
 
                 </div>

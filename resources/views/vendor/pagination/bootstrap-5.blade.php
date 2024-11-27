@@ -96,8 +96,6 @@
             <div>
                 <p class="small text-warning">
                     {!! __('Showing') !!}
-                    <span class="fw-bold">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
                     <span class="fw-bold">{{ $paginator->lastItem() }}</span>
                     {!! __('of') !!}
                     <span class="fw-bold">{{ $paginator->total() }}</span>

@@ -94,3 +94,8 @@ p{
     font-family: var(--content-font);
     font-size: var(--paragraph);
 }
+
+/* Main Footer Content */
+.footer-section{
+    background: #401F71;
+}

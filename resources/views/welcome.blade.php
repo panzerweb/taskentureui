@@ -85,6 +85,83 @@
                     </div>
                 </div>
             </section>
+
+
+            {{-- Objective Section --}}
+            <section class="objective-section pt-5">
+                <div class="container-fluid remaining-container">
+                    <div class="container-lg">
+                        <h1 class="fw-bold pt-3 text-warning">Obje<span class="text-light">ctive</span></h1>
+                        <div class="row mb-5 align-items-center">
+                            <div class="col-12 col-md-7 col-lg-5">
+                                <img src="{{asset('images/misc/objective.svg')}}" class="img-fluid w-100 p-3">
+                            </div>
+                            <div class="col-12 col-md-5 col-lg-7">
+                                <h2 class="fw-bold fs-1 mb-3 text-warning">Pur<span class="text-light">pose</span> of this Web<span class="text-light">site</span></h2>
+                                <p class="text-light">
+                                    Taskenture is a free habit-building and 
+                                    ToDo Web Application that treats your real life like a game. 
+                                    With in-game rewards to motivate you, 
+                                    Taskenture can help you achieve your goals to become healthy, hard-working, and happy.
+                                </p>
+                                <p class="text-light">
+                                    Health and Fitness, School and Work, or maybe your personal life? Taskenture is here to help you manage it all!
+                                    There are only a handful of todo apps in the World Wide Web that makes your tasking
+                                    a GAMING!
+                                </p>
+                            </div>
+                        </div>
+                    </div>         
+                </div>
+
+                
+                <marquee direction="left" scrollamount="12" class="d-flex justify-content-between align-items-center gap-5 ">
+                    <span class="mx-5">UPDATES ARE COMING SOON!</span>
+                    <span class="mx-5">SHOP WILL BE HERE</span>
+                </marquee>
+
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h1 class="fw-bold pt-5 pb-4 text-center text-warning">Key <span class="text-light">Features</span></h1>
+                        <p class="text-center text-light w-75 mx-auto">
+                            Taskenture lets you have this features so that our users can 
+                            enjoy our simple web application to its fullest. And our team
+                            is working our best to optimize the website as we are in its development.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-5 pb-5 key-features-card">
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="container-lg text-center text-light">
+                            <img src="{{asset('images/misc/award.svg')}}"  alt="" class="w-100">
+                            <h3 class="mt-5 mb-3 text-warning">You Can Earn Some Rewards</h3>
+                            <p class="card-text">
+                                Ranking Badges, Avatars, Gold Coins, and Diamonds will be rewarded to you. Go, and be productive!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="container-lg text-center text-light">
+                            <img src="{{asset('images/misc/taskmanage.svg')}}"  alt="" class="w-100">
+                            <h3 class="mt-5 mb-3 text-warning">A Effective Task Management</h3>
+                            <p class="card-text">
+                                Do not allow yourself to be a master procrastinator, touch some grass *COUGH* I mean use Taskenture to be productive.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="container-lg text-center text-light">
+                            <img src="{{asset('images/misc/getreward.svg')}}"  alt="" class="w-100">
+                            <h3 class="mt-5 mb-3 text-warning">Become your Best Version</h3>
+                            <p class="card-text">
+                                Day by day, you thrive hard to become a better version of yourself. Consistence is the key to success bro!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
         </main>
 
         {{-- Footer Section --}}
@@ -92,8 +169,24 @@
             <div class="container">
                 <footer class="py-5 text-light">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="d-flex justify-content-center flex-column">
+                        <div class="row">
+                            <div class="col-6 col-md-2 mb-3">
+                                <h5 class="fw-semibold">Support</h5>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item mb-2"><a href="{{ route('outside.faqs') }}" class="nav-link p-0 text-light">FAQs</a></li>
+                                    <li class="nav-item mb-2"><a href="{{ route('outside.reportbug') }}" class="nav-link p-0 text-light">Report Bug</a></li>
+                                </ul>
+                            </div>
+                        
+                            <div class="col-6 col-md-2 mb-3">
+                                <h5 class="fw-semibold">Community</h5>
+                                <ul class="nav flex-column">
+                                    <li class="nav-item mb-2"><a href="{{ route('outside.help') }}" class="nav-link p-0 text-light">Team</a></li>
+                                    <li class="nav-item mb-2"><a href="{{ route('outside.contactus') }}" class="nav-link p-0 text-light">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        <div class="col-md-5 offset-md-3">
+                            <div class="d-flex justify-content-center align-items-end flex-column">
                                 <h2 class="text-center text-warning fw-bold">Task<span class="text-light">enture</span></h2>
                                 <p class="text-center mb-4">Your Gamified To Do Web Application</p>
                                 <div class="d-flex justify-content-center justify-content-md-end align-items-end  w-100 gap-2">
