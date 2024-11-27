@@ -17,6 +17,7 @@ class BadgeSeeder extends Seeder
             ['name' => 'Valor', 'required_xp' => 120, 'description' => 'Befitting of a Productive Soldier, a Valor Medal', 'image' => 'images/badges/level5.svg'],
             ['name' => 'Ascendant', 'required_xp' => 150, 'description' => 'You are ready to ascend to higher status', 'image' => 'images/badges/level6.svg'],
             ['name' => 'Night Owl', 'required_xp' => 180, 'description' => 'Get some sleep! You are so productive.', 'image' => 'images/badges/level7.svg'],
+            ['name' => 'Alpha Bear', 'required_xp' => 210, 'description' => 'Some Alpha Bear you are!', 'image' => 'images/badges/level8.svg'],
         ];
 
         foreach ($badges as $badge) {

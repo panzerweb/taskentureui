@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #270962;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../images/bg-4.jpg");    
+    background-size: cover;
     color: #ffffff;
     line-height: 1.6;
     margin: 0;
@@ -10,6 +11,10 @@ body {
 .pixel-text {
     font-family: 'Press Start 2P', cursive;
     text-shadow: 2px 2px 0px #000;
+    color: #ffffff;
+}
+.pixel-text span{
+    color: #ffc107;
 }
 
 .pixel-border {
@@ -24,13 +29,14 @@ body {
     background-position: center;
     height: 300px;
     display: flex;
+    margin: 0 1rem;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
 .hero-content {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #16213e;
     padding: 20px;
     border-radius: 10px;
 }
@@ -97,7 +103,8 @@ body {
 }
 
 .category-btn.active {
-    background-color: #e94560;
+    background-color: #ffc107;
+    color: #000;
 }
 
 .index-grid {
@@ -178,6 +185,39 @@ body {
     font-weight: bold;
     color: #4ecdc4;
 }
+
+
+
+.btn-anchor {
+    text-decoration: none; /* Remove underline from the anchor */
+    display: inline-block; /* Makes the anchor behave like a button wrapper */
+    margin: 1.5rem;
+}
+
+.btn-nice {
+    display: inline-block;
+    background-color: #16213e; /* Bright blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Spacing for the button */
+    font-size: 1rem; /* Adjust size to fit your design */
+    font-family: 'Press Start 2P', sans-serif; /* Match your retro theme */
+    border: 3px solid #333; /* Black border for a bold look */
+    border-radius: 10px; /* Rounded corners for a modern-retro hybrid */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-shadow: 1px 1px 2px #000; /* Text shadow for a 3D effect */
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+}
+
+.btn-nice:hover {
+    background-color: #1976D2; /* Slightly darker blue on hover */
+    transform: translateY(-2px); /* Raise the button slightly */
+}
+
+.btn-nice:active {
+    background-color: #0D47A1; /* Even darker blue for active state */
+    transform: translateY(2px); /* Slightly press the button on click */
+}
+
 
 @media (max-width: 768px) {
     .hero {

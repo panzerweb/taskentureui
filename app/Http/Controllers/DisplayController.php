@@ -58,7 +58,7 @@ class DisplayController extends Controller
     public function trashIndex(){
         // Retrieve all tasks associated with the currently authenticated user
         // The `auth()->id()` method gets the ID of the logged-in user
-        $tasks = Trash::where('user_id', auth()->id())->paginate(5);
+        $tasks = Trash::where('user_id', auth()->id())->where("deleted_at", true)->paginate(5);
         $badges = Badge::all();
         
         // Pass the retrieved tasks to the 'starred' view for rendering

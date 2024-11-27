@@ -18,7 +18,12 @@ class AvatarSeeder extends Seeder
             ['level' => 2, 'image' => 'images/avatars/level2.png', 'name' => 'Rookie'],
             ['level' => 3, 'image' => 'images/avatars/level3.png', 'name' => 'Elite'],
             ['level' => 4, 'image' => 'images/avatars/level4.png', 'name' => 'Master'],
-            ['level' => 5, 'image' => 'images/avatars/level5.png', 'name' => 'Grandmaster'],
+            ['level' => 5, 'image' => 'images/avatars/level5.svg', 'name' => 'Conqueror'],
+            ['level' => 6, 'image' => 'images/avatars/level6.svg', 'name' => 'Grand Ninja'],
+            ['level' => 7, 'image' => 'images/avatars/level7.svg', 'name' => 'Grandmaster'],
+            ['level' => 8, 'image' => 'images/avatars/level8.svg', 'name' => 'Knight'],
+            ['level' => 9, 'image' => 'images/avatars/level9.svg', 'name' => 'Mafia Boss'],
+            ['level' => 10, 'image' => 'images/avatars/level10.svg', 'name' => 'Emperor'],
             // Add more levels as needed
         ];
     

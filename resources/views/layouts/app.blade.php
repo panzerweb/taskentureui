@@ -64,9 +64,6 @@
                         <li class="nav-item mx-auto">
                             <x-navlink href="{{ route('pages.starred') }}" :active="request()->routeIs('pages.starred') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.starred'">Favorite</x-navlink>
                         </li>
-                        <li class="nav-item mx-auto">
-                            <x-navlink href="{{ route('pages.trash') }}" :active="request()->routeIs('pages.trash') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.trash'">Trash</x-navlink>
-                        </li>
                     </ul>
         
                     <!-- Right Side Of Navbar -->
@@ -104,7 +101,9 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a href="{{ route('pages.trash') }}" class="dropdown-item text-dark" :active="request()->routeIs('pages.trash') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.trash'">Trash</a>
+
+                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -112,8 +111,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
                                 </div>
                             </li>
+                            
                         @endguest
                     </ul>
                 </div>
@@ -235,5 +236,6 @@
 
     <script src="{{asset('js/console.js')}}"></script>
 
+    
 </body>
 </html>

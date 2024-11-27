@@ -1,5 +1,36 @@
+:root{
+    /* Colors */
+    --bg-color: #401F71;
+    --primary: #6635B1;
+    --secondary: #FFFFFF;
+    --dark: #121212;
+    --primary-content: #F78F4B;
+    --secondary-content: #ffe682;
+    --first-accent: #DAD9D9;
+    --second-accent: #A1A1A1;
+    --fill-second: #870680;
+    --fill: #daa3ff;
+
+    /* Fonts */
+    --main-font: 'Press Start 2P';
+    --content-font: 'Roboto Condensed';
+
+    /* Font Sizes */
+    --heading1: 1.7rem; 
+    --heading2: 1.5rem; 
+    --heading3: 1.345rem; 
+    --heading4: 1.3rem; 
+    --heading5: 1.24rem; 
+    --heading6: 1.1rem; 
+    --paragraph: 1rem;
+    --small: 0.7rem;
+    --accent-small: 0.6rem;
+}
+
+
+
 .login-container {
-    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    background:#401F71;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
