@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> {{-- Sweet Alert Script --}}
@@ -188,7 +189,7 @@
                     <h5 class="fw-semibold">Support</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="{{ route('faqs') }}" class="nav-link p-0 text-light">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('reportbug.submit') }}" class="nav-link p-0 text-light">Report Bug</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('pages.ReportBug') }}" class="nav-link p-0 text-light">Report Bug</a></li>
                     </ul>
                 </div>
             
