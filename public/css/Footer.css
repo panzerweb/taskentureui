@@ -24,12 +24,50 @@ of the Web Application.
 }
 
 /* FAQS Content */
-    
+.accordion-button:hover, 
+.accordion-button.active {
+    background-color: var(--fill-second); 
+    color: var(--secondary); 
+}
+.accordion-body {
+    background-color: var(--fill-second); 
+    color: var(--secondary); 
+}
 
-
-/* Report Bug Content */
+/* Link Styling */
+.index {
+    color: var(--secondary-content); /* Default link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the text bold */
+    transition: 0.3s; /* Smooth color transition */
+}
+.index:hover {
+    color: var(--primary-content); /* Hover color */
+    text-decoration: underline; /* Add underline on hover */
+}
+.index:active {
+    color: var(--secondary); 
+}
 
 /* Contact Us Content */
+.card-body h2 {
+    color: var(--bg-color); 
+}
+.card-body a {
+    color: var(--primary); 
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.card-body a:hover {
+    color: var(--primary-content); 
+    text-decoration: underline; 
+}
 
 /* Team Content */
+/* Report Bug Content */
+.btn-warning:hover {
+    transform: scale(1.07);
+}
+
 
