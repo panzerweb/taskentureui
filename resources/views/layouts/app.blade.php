@@ -56,9 +56,6 @@
                         <!-- Other nav items can go here -->
                         {{-- Page Links --}}
                         <li class="nav-item mx-auto">
-                            <x-navlink href="#">Events</x-navlink>
-                        </li>
-                        <li class="nav-item mx-auto">
                             <x-navlink href="{{ route('home') }}" :active="request()->routeIs('home') || request()->routeIs('tasks.search') && request()->route('context') === 'home'">My List</x-navlink>
                         </li>
                         <li class="nav-item mx-auto">
@@ -66,6 +63,12 @@
                         </li>
                         <li class="nav-item mx-auto">
                             <x-navlink href="{{route('shop.index')}}">Shop</x-navlink>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <x-navlink href="{{ route('event') }}">Events</x-navlink>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <x-navlink href="{{ route('guide') }}">Guide</x-navlink>
                         </li>
                     </ul>
         
