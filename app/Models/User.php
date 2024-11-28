@@ -68,5 +68,12 @@ class User extends Authenticatable
         return $this->hasMany(UserCoin::class);
     }
 
+        public function items()
+    {
+        return $this->belongsToMany(ShopItem::class, 'users_items', 'user_id', 'item_id')->withTimestamps();
+    }
+
+
+
 
 }

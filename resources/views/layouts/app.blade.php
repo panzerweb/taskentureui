@@ -64,6 +64,9 @@
                         <li class="nav-item mx-auto">
                             <x-navlink href="{{ route('pages.starred') }}" :active="request()->routeIs('pages.starred') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.starred'">Favorite</x-navlink>
                         </li>
+                        <li class="nav-item mx-auto">
+                            <x-navlink href="{{route('shop.index')}}">Shop</x-navlink>
+                        </li>
                     </ul>
         
                     <!-- Right Side Of Navbar -->
