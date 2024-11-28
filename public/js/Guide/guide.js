@@ -31,7 +31,7 @@ const guideContent = {
     "organizing-tasks": {
         title: "Organizing Tasks",
         content: `
-            <p style="font-size: 25px">Pixel Quest: TaskMaster offers powerful organization features to keep your quests on track.</p>
+            <p style="font-size: 25px">Organizing your task to help you arrange your task.</p>
             <div class="image-container">
                 <img src="/images/Guide/organizingtask.png" alt="Creating a New Task" class="guide-image pixel-border">
             </div>
