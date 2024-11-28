@@ -38,7 +38,7 @@
                                 $avatar = Auth::user()->avatars->where('level', Auth::user()->level)->first();
                             @endphp
 
-                            <p class="fw-bold">Rank: <span class="fw-light">{{ $avatar->name ?? 'Rookie'}}</span></p>
+                            <p class="fw-bold">Rank: <span class="fw-light">{{ $avatar->name ?? 'Starter'}}</span></p>
                             <p class="fw-bold">XP: <span class="fw-light">{{ Auth::user()->xp }} / {{ Auth::user()->level * 30 }}</span></p>
                         </div>
                         

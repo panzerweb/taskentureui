@@ -1,15 +1,33 @@
 const items = [
-    { id: 1, name: "Coming soon...", image: "pixel-sword.png", description: "A powerful sword made of pure pixels.", obtain: "Defeat the Pixel Dragon in the Crystal Caverns.", category: "Items" },
-    { id: 2, name: "Coming soon...", image: "health-potion.png", description: "Restores 50 HP when consumed.", obtain: "Can be crafted using 3 Red Herbs and 1 Crystal Vial.", category: "Items" },
-    { id: 3, name: "Bobo!", image: "/images/badges/level2.svg", description: "Awarded for reaching level 2.", obtain: "Pagtask Tapulan.", category: "Badges" },
-    { id: 4, name: "Waw Kabobohan", image: "/images/badges/level3.svg", description: "Awarded for crafting 100 potions.", obtain: "Craft 100 different potions.", category: "Badges" },
-    { id: 5, name: "Bobo kapa", image: "/images/avatars/level1.png", description: "A Bobong avatar.", obtain: "Reach level 2 in finishing some task.", category: "Avatars" },
-    { id: 6, name: "Di kana Bobo", image: "/images/avatars/level2.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },
-    { id: 7, name: "Di kana Bobo", image: "/images/avatars/level3.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },
-    { id: 8, name: "Di kana Bobo", image: "/images/avatars/level4.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },
-    { id: 9, name: "Coming soon...", image: "pixel-pup.png", description: "A loyal pixelated dog companion.", obtain: "Complete the 'Lost Puppy' quest in Pixel Village.", category: "Pets" },
-    { id: 10, name: "Coming soon...", image: "dragonling.png", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Pets" },
-    { id: 10, name: "Coming soon...", image: "dragonling.png", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Pets" }
+    // Badges
+    { id: 1, name: "Task Rookie", image: "/images/badges/level2.svg", description: "Levelled up to level 2", obtain: "Complete 3 Tasks to Level up.", category: "Badges" },
+    { id: 2, name: "Elite Streaker", image: "/images/badges/level3.svg", description: "Reaching Level 3 by completing Task", obtain: "Obtained after finishing 6 tasks", category: "Badges" },
+    { id: 3, name: "Hunter", image: "/images/badges/level4.svg", description: "You have become a Fierce Task Hunter", obtain: "Becoming Level 4 and finishing 9 tasks.", category: "Badges" },
+    { id: 4, name: "Valor", image: "/images/badges/level5.svg", description: "Befitting of a Productive Soldier, a Valor Medal", obtain: "You have to become productive and completed 12 tasks.", category: "Badges" },
+    { id: 5, name: "Ascendant", image: "/images/badges/level6.svg", description: "You are ready to ascend to higher status", obtain: "Ascended to Level 6, you just finished 15 tasks.", category: "Badges" },
+    { id: 6, name: "Night Owl", image: "/images/badges/level7.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
+    { id: 7, name: "Alpha Bear", image: "/images/badges/level8.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
+    { id: 8, name: "meow", image: "/images/badges/level9.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
+    { id: 8, name: "aw aw", image: "/images/badges/level10.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
+    // Avatars
+    { id: 9, name: "Starter", image: "/images/avatars/level1.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },
+    { id: 10, name: "Rookie", image: "/images/avatars/level2.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },
+    { id: 11, name: "Elite", image: "/images/avatars/level3.png", description: "A loyal pixelated dog companion.", obtain: "Complete the 'Lost Puppy' quest in Pixel Village.", category: "Avatars" },
+    { id: 12, name: "Master", image: "/images/avatars/level4.png", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    { id: 13, name: "Conqueror", image: "/images/avatars/level5.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    { id: 14, name: "Grand Ninja", image: "/images/avatars/level6.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    { id: 15, name: "Grandmaster", image: "/images/avatars/level7.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    { id: 16, name: "Knight", image: "/images/avatars/level8.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    { id: 17, name: "Mafia Boss", image: "/images/avatars/level9.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    { id: 18, name: "Emperor", image: "/images/avatars/level10.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Avatars" },
+    // Coming Soon
+    { id: 19, name: "Coming soon...", image: "/images/misc/comingsoonmark.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Items" },
+    { id: 20, name: "Coming soon...", image: "/images/misc/comingsoonmark.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Items" },
+    { id: 21, name: "Coming soon...", image: "/images/misc/comingsoonmark.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Items" },
+    { id: 22, name: "Coming soon...", image: "/images/misc/comingsoonmark.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Items" },
+    { id: 23, name: "Coming soon...", image: "/images/misc/comingsoonmark.svg", description: "A baby dragon pet that grows with you.", obtain: "Hatch a dragon egg found in the Volcanic Peaks.", category: "Items" },
+
+
 ];
 
 let currentCategory = "All";

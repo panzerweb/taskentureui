@@ -9,14 +9,28 @@ use App\Models\Dev;
 use App\Models\Developer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\InventoryController;
+
+
 
 // Default Route for the welcome page
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 Route::get('/bookindex', function () {
     return view('/pages/BookIndex');
 })->name('IndexBook');
+
+Route::get('/Events', function () {
+    return view('/pages/Events');
+})->name('event');
+
+Route::get('/Guide', function () {
+    return view('/pages/Guide');
+})->name('guide');
 
 // Unlogged in users pages
 Route::get('/outside/faqs', function () {
@@ -91,6 +105,13 @@ Route::middleware('auth')->group(function () {
     //Contact Us
     Route::get('/ContactUs', [HomeController::class, 'ContactUs'])->name('contactus');
 
+});
+
+// Shop routing
+Route::middleware('auth')->group(function () {
+    Route::get('/Shop', [ShopController::class, 'index'])->name('shop.index');
+    Route::post('/Shop/purchase/{id}', [ShopController::class, 'purchase'])->name('shop.purchase');
+    Route::get('/Inventory', [InventoryController::class, 'index'])->name('inventory.index');
 });
 
 

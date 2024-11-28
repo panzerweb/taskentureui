@@ -17,6 +17,49 @@
 {{-- The profile section --}}
 @include('components.profile');
 
+<style>
+.updates-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.updates-list li {
+    background-color: #401F71;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.updates-list h3 {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.card {
+    background-color: #6635B1;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #e94560;
+    border-radius: 20px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+</style>
+
 <div class="container-lg home pb-4">
     <div class="row justify-content-center">
 
@@ -209,29 +252,31 @@
             </div>
         </div>
         <div class="col-12 col-lg-5 mt-5">
-            <div class="card bg-secondary-subtle">
-                <div class="card-header">
-                    <h2 class="fw-bold text-center w-100 text-light">Events</h2>    
+                <div class="card">
+                    <h2 class="pixel-text text-white text-center">Events</h2>    
                 </div>
-                <div class="card-body">
-                    <!-- Display Area for all Badges -->
-                    <div class="row justify-content-center align-items-center flex-wrap p-3">
-                        @foreach ($badges as $badge)
-                        <div class="col-6 col-md-4 col-lg-6">
-                            <div class="card badge-card mb-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#badgeModal{{$badge->id}}">
-                                {{-- Badge Image --}}
-                                <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-2">
-
-                                {{-- Badge Details --}}
-                                <div class="card-img-overlay text-center">
-                                    <h5 class="text-dark fw-bold text-wrap">{{$badge->name}}</h5>
-                                  </div>
-                            </div>
-                        </div>
-                        @endforeach
+                    <!-- Display Area for Events -->
+                    <div class="card">
+                    <h2 class="pixel-text text-white">Upcoming Updates</h2>
+                    <ul class="updates-list">
+                        <li>
+                            <h3 class="pixel-text text-white">SHOP!</h3>
+                            <p class="text-white">Experience the thrill of our upcoming 'Tasking Royale' mode!</p>
+                            <span class="badge">Coming Soon</span>
+                        </li>
+                        <li>
+                            <h3 class="pixel-text text-white">Pets!</h3>
+                            <p class="text-white">Get ready for even more stunning pixel art with our graphics overhaul!</p>
+                            <span class="badge">Planned</span>
+                        </li>
+                        <li>
+                            <h3 class="pixel-text text-white">Forgot Password?</h3>
+                            <p class="text-white">Join fellow gamers in our monthly pixel art contests and game jams!</p>
+                            <span class="badge">In Development</span>
+                        </li>
+                    </ul>
+                    <a href="{{route('event')}}" class="btn text-white" style="background-color: #401F71;">More Events</a>
                     </div>
-                </div>
-              </div>
         </div>
 
 

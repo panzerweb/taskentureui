@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center align-items-center">
-        <div class="col-md-10">
+        <div class="col-md-10 mt-5">
             <div class="login-container">
                 <div class="row align-items-center">
                     <div class="col-md-5 d-none d-md-block text-center text-white">
@@ -59,12 +59,12 @@
 
                                     <div class="row mb-0">
                                         <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn" style="background: #F78F4B; color:white  ">
                                                 {{ __('Login') }}
                                             </button>
 
                                             @if (Route::has('password.request'))
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                <a class="btn btn-link" href="{{ route('password.request') }}" style="color:white">
                                                     {{ __('Forgot Your Password?') }}
                                                 </a>
                                             @endif

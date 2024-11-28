@@ -143,9 +143,19 @@ class TaskController extends Controller
         }
         else if(!$task->is_completed){
             $user->xp -= 10; // Adjust XP points as needed
+            // Find and delete the UserCoin record for this task
+            $userCoin = UserCoin::where('user_id', Auth::id())
+                ->where('task_id', $task->id)
+                ->first();
+
+            if ($userCoin) {
+                $goldCoinsDeducted = $user->gold_coins; // Deduct coins from user
+                $userCoin->delete(); // Remove the UserCoin record
+
+                session()->flash('toggle', "-10 xp and $goldCoinsDeducted gold coins");
+            }
             $user->save();
             $this->checkLevelUp($user);
-            session()->flash('toggle', '-10 xp');
         }
         
         return redirect()->back();
@@ -279,6 +289,9 @@ class TaskController extends Controller
         
         // Start with a base query
         $query = Task::query();
+
+        // Always filter by the authenticated user
+        $query->where('user_id', auth()->id());
 
         // Apply context-specific filters
         if($context == 'pages.starred'){
