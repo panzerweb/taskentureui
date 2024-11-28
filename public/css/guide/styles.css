@@ -74,11 +74,17 @@ h2 {
     margin-top: 0;
 }
 
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .guide-image {
     max-width: 100%;
     height: auto;
     margin: 1rem 0;
 }
+
 
 /* Mobile Adjustments */
 @media (max-width: 600px) {

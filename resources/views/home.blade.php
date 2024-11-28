@@ -91,7 +91,7 @@ h1 {
             {{-- ======================================================== --}}
             {{-- Add Task Form --}}
             <div class="wrapper p-3 rounded-3 shadow border border-2 border-dark-subtle">
-                <h2 class="fw-bold">Add Task</h2>
+                <h2 class="pixel-text">Add Task</h2>
                 <form action="/create-task" method="post">
                     @csrf
                     <div class="input-group mb-3">
@@ -112,7 +112,7 @@ h1 {
                 {{-- ======================================================== --}}
                 {{-- Task List --}}
                 <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <h2 class="fw-bold mt-4 mb-3">Tasks</h2>
+                    <h2 class="pixel-text">Tasks</h2>
                     {{-- Filter for Priority and Categories --}}
                     <div class="dropdown my-3 filter-dropdown">
                         <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -252,31 +252,31 @@ h1 {
             </div>
         </div>
         <div class="col-12 col-lg-5 mt-5">
-                <div class="card">
-                    <h2 class="pixel-text text-white text-center">Events</h2>    
-                </div>
-                    <!-- Display Area for Events -->
-                    <div class="card">
-                    <h2 class="pixel-text text-white">Upcoming Updates</h2>
-                    <ul class="updates-list">
-                        <li>
-                            <h3 class="pixel-text text-white">SHOP!</h3>
-                            <p class="text-white">Experience the thrill of our upcoming 'Tasking Royale' mode!</p>
-                            <span class="badge">Coming Soon</span>
-                        </li>
-                        <li>
-                            <h3 class="pixel-text text-white">Pets!</h3>
-                            <p class="text-white">Get ready for even more stunning pixel art with our graphics overhaul!</p>
-                            <span class="badge">Planned</span>
-                        </li>
-                        <li>
-                            <h3 class="pixel-text text-white">Forgot Password?</h3>
-                            <p class="text-white">Join fellow gamers in our monthly pixel art contests and game jams!</p>
-                            <span class="badge">In Development</span>
-                        </li>
-                    </ul>
-                    <a href="{{route('event')}}" class="btn text-white" style="background-color: #401F71;">More Events</a>
-                    </div>
+            <div class="card">
+                <h2 class="pixel-text text-white text-center">Events</h2>    
+            </div>
+            <!-- Display Area for Events -->
+            <div class="card">
+                <h2 class="pixel-text text-white">Upcoming Updates</h2>
+                <ul class="updates-list">
+                    <li>
+                        <h3 class="pixel-text text-white">Game?!</h3>
+                        <p class="text-white">Experience the thrill of our upcoming 'Tasking Royale' mode!</p>
+                        <span class="badge bg-danger text-light">In Development</span>
+                    </li>
+                    <li>
+                        <h3 class="pixel-text text-white">Customizable Avatar Soon</h3>
+                        <p class="text-white">Get ready to customize your avatar.</p>
+                        <span class="badge bg-warning text-dark">Planned</span>
+                    </li>
+                    <li>
+                        <h3 class="pixel-text text-white">Forgot Password?</h3>
+                        <p class="text-white">Forgetting password will never be the same. But PLEASE don't!!!</p>
+                        <span class="badge bg-danger text-light">In Development</span>
+                    </li>
+                </ul>
+                <a href="{{route('event')}}" class="btn text-white" style="background-color: #401F71;">More Events</a>
+            </div>
         </div>
 
 

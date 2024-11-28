@@ -28,7 +28,7 @@ class DisplayController extends Controller
         // The `auth()->id()` method gets the ID of the logged-in user
         $user = auth()->user();
         $badges = Badge::all();
-        $tasks = Task::where('user_id', auth()->id())->paginate(5);
+        $tasks = Task::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(5);
         
         // Pass the retrieved tasks to the 'home' view for rendering
         // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
@@ -44,7 +44,7 @@ class DisplayController extends Controller
         // Retrieve all tasks associated with the currently authenticated user
         // The `auth()->id()` method gets the ID of the logged-in user
         $user = auth()->user();
-        $tasks = Task::where('user_id', auth()->id())->where('is_favorite', true)->paginate(5);
+        $tasks = Task::where('user_id', auth()->id())->where('is_favorite', true)->orderBy('created_at', 'desc')->paginate(5);
         $badges = Badge::all();
     
         // Pass the retrieved tasks to the 'starred' view for rendering
@@ -58,7 +58,7 @@ class DisplayController extends Controller
     public function trashIndex(){
         // Retrieve all tasks associated with the currently authenticated user
         // The `auth()->id()` method gets the ID of the logged-in user
-        $tasks = Trash::where('user_id', auth()->id())->where("deleted_at", true)->paginate(5);
+        $tasks = Trash::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(5);
         $badges = Badge::all();
         
         // Pass the retrieved tasks to the 'starred' view for rendering

@@ -62,13 +62,13 @@
                             <x-navlink href="{{ route('pages.starred') }}" :active="request()->routeIs('pages.starred') || request()->routeIs('tasks.search') && request()->route('context') === 'pages.starred'">Favorite</x-navlink>
                         </li>
                         <li class="nav-item mx-auto">
-                            <x-navlink href="{{route('shop.index')}}">Shop</x-navlink>
+                            <x-navlink href="{{route('shop.index')}}" :active="request()->routeIs('shop.index')">Shop</x-navlink>
                         </li>
                         <li class="nav-item mx-auto">
-                            <x-navlink href="{{ route('event') }}">Events</x-navlink>
+                            <x-navlink href="{{ route('event') }}" :active="request()->routeIs('event')">Events</x-navlink>
                         </li>
                         <li class="nav-item mx-auto">
-                            <x-navlink href="{{ route('guide') }}">Guide</x-navlink>
+                            <x-navlink href="{{ route('guide') }}" :active="request()->routeIs('guide')">Guide</x-navlink>
                         </li>
                     </ul>
         

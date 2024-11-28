@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentEvents = [
         {
             title: 'MASSIVE UPDATE!!',
-            image: '/images/logo/EventShop.png', 
-            description: 'Pagka WOWOWO!',
-            date: 'November 25, 2024'
+            image: '/images/events/massive_update.svg', 
+            description: 'Shop, Inventory, and Guide UPDATES!!',
+            date: 'November 28, 2024'
         },
         {
             title: 'Latest Grapic UI Design!',
-            image: '/images/badges/level2.svg', 
+            image: '/images/events/graphic_update.svg', 
             description: 'Sheeeshable!',
-            date: 'November 25, 2024 same date nalang sa ni'
+            date: 'November 28, 2024'
         },
     ];
     
@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const upcomingEvents = [
         {
-            title: 'Shop!',
-            image: '/images/events/pixel-art-workshop.jpg', 
-            description: 'Learn the art of pixel creation from industry professionals!',
+            title: 'GAME soon??',
+            image: '/images/events/showcase_update.svg', 
+            description: 'Whether it’s conquering your to-do list or tackling long-term goals, TaskQuest transforms every accomplishment into a step toward victory. Are you ready to turn your daily grind into an epic adventure?',
             date: 'July 5 - July 7, 2023'
         },
         {
             title: 'Indie Game Showcase',
-            image: '/images/events/indie-showcase.jpg', 
+            image: '/images/events/shop_update.svg', 
             description: 'Discover the next big indie hit at our exclusive showcase event.',
             date: 'July 15, 2023'
         },
@@ -78,13 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const professionalEvents = [
         {
             title: 'Game Dev Conference',
-            image: 'game-dev-conference.jpg', 
+            image: '/images/events/gamedev_conference_update.svg', 
             description: 'Network with industry leaders and learn about the latest in game development technologies.',
             date: 'August 10 - August 12, 2023'
         },
         {
             title: 'Esports Tournament',
-            image: 'esports-tournament.jpg', 
+            image: '/images/events/tournament_update.svg ', 
             description: 'Watch top players compete in our annual professional esports tournament.',
             date: 'August 20 - August 22, 2023'
         },

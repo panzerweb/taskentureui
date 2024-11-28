@@ -46,7 +46,8 @@
                 <div class="wrapper p-3 rounded-3 shadow border border-2 border-dark-subtle">
                 @if($tasks->isNotEmpty())
                 @foreach ($tasks as $task)
-                <div class="task-box d-flex justify-content-between align-items-center border border-dark-subtle border-1 rounded-1 gap-3 py-1 px-3 mb-2 shadow-sm">
+                <div class="task-box d-flex justify-content-between align-items-center border border-dark-subtle border-1 rounded-1 gap-3 py-1 px-3 mb-2 shadow-sm
+                    @if($task->is_favorite) fill-div @endif">
                     {{-- Task Content --}}
                     <div class="text-content w-100 mx-3">
                         <h3 class="fw-bold @if($task->is_completed) text-strikethrough @endif align-self-center" id="task-name">{{ $task->taskname }}</h3>
@@ -90,7 +91,7 @@
                         <img src="{{asset('images/misc/Trashicon3.svg')}}" alt="" class="img-fluid object-fit-cover">
                         <h3 class="fw-bold text-light shadow-lg py-2">
                             You have 
-                                <span id="countOfTrash">{{$tasks->count()}}</span> 
+                                <span id="countOfTrash">{{$tasks->total()}}</span> 
                             Task Deleted
                         </h3>
                     </div>

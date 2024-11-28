@@ -238,7 +238,7 @@
                                 @foreach (Auth::user()->badges->chunk(ceil(Auth::user()->badges->count() / 3)) as $chunk)
                                     @foreach ($chunk as $badge)
                                     <div class="col-6 col-md-4 item badges" style="display: none;cursor: pointer">
-                                        <div class="card mb-3 shadow-sm">
+                                        <div class="card mb-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#badgeModal{{$badge->id}}">
                                             <img src="{{ asset($badge->image) }}" alt="Badge Image" class="img-fluid text-center my-0 rounded-2">
                                         </div>
                                     </div>

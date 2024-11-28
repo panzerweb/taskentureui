@@ -29,7 +29,7 @@ class AvatarSeeder extends Seeder
     
         // To Update and not to truncate again the seeder
         foreach ($avatars as $avatar) {
-            Avatar::updateOrCreate(['level' => $avatar['level']], $avatar); // Insert into `avatars` table
+            Avatar::updateOrInsert(['level' => $avatar['level']], $avatar); // Insert into `avatars` table
         }
     }
 }

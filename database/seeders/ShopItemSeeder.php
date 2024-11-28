@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\ShopItem;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -9,17 +11,22 @@ class ShopItemSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('shop_items')->insert([
+        $shopItems = [
             // Items
-            ['name' => 'Kyot miming', 'description' => 'Aura +9999', 'price' => 100, 'category' => 'Items', 'image' => 'images/logo/EventPets.png'],
-            ['name' => 'Balay ni Mayang', 'description' => 'Safe ka sakoa <3', 'price' => 120, 'category' => 'Items', 'image' => 'images/logo/EventShop.png'],
-            ['name' => 'Hi Kras', 'description' => 'Loyal ko nemu krasdaasdasas', 'price' => 500, 'category' => 'Items', 'image' => 'images/logo/EventGame.png'],
+            ['name' => 'Bronze Sword', 'description' => 'Damage +5', 'price' => 10, 'category' => 'Items', 'image' => 'images/Shop/Items/bronze-sword.svg'],
+            ['name' => 'Wings', 'description' => 'Agility +10', 'price' => 20, 'category' => 'Items', 'image' => 'images/Shop/Items/wings.svg'],
+            ['name' => 'Christmas Hat', 'description' => 'Intellegence +5', 'price' => 50, 'category' => 'Items', 'image' => 'images/Shop/Items/christmas-hat.svg'],
             // Pets
-            ['name' => 'Fire Dragon', 'description' => 'A loyal fire-breathing companion', 'price' => 1000, 'category' => 'Pets', 'image' => 'images/fire_dragon.png'],
-            ['name' => 'Ice Wolf', 'description' => 'A swift and cool ally', 'price' => 800, 'category' => 'Pets', 'image' => 'images/ice_wolf.png'],
+            ['name' => 'Dog', 'description' => 'A loyal companion', 'price' => 10, 'category' => 'Pets', 'image' => 'images/Shop/Pets/Dog.svg'],
+            ['name' => 'Ice Wolf', 'description' => 'A swift and cool ally that buffs you Damage +20', 'price' => 50, 'category' => 'Pets', 'image' => 'images/Shop/Pets/ice-wolf.svg'],
             // Avatars
-            ['name' => 'Knight', 'description' => 'A valiant knight avatar', 'price' => 300, 'category' => 'Avatars', 'image' => 'images/knight_avatar.png'],
-            ['name' => 'Mage', 'description' => 'A wise mage avatar', 'price' => 300, 'category' => 'Avatars', 'image' => 'images/mage_avatar.png'],
-        ]);
+            ['name' => 'Emo Guy', 'description' => 'A emo emong baby avatar', 'price' => 50, 'category' => 'Avatars', 'image' => 'images/Shop/Avatars/emo-guy.svg'],
+            ['name' => 'Baldimir', 'description' => 'A Vladimir inspired avatar', 'price' => 200, 'category' => 'Avatars', 'image' => 'images/Shop/Avatars/baldimir.svg'],
+        ];
+
+        foreach ($shopItems as $item){
+            ShopItem::updateOrInsert(["name" => $item["name"]], $item);
+        }
     }
+
 }

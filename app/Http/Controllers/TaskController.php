@@ -197,10 +197,10 @@ class TaskController extends Controller
             $user->level--; // Rank down
             $user->xp += ($user->level * 30); // Add the required XP for the previous level
 
-            // Remove the Avatar for the current level
+            // Remove the Avatar for the current level but retain all highest acquired avatars
             $currentAvatar = Avatar::where('level', $user->level + 1)->first();
             if ($currentAvatar) {
-                $user->avatars()->detach($currentAvatar->id);
+                $user->avatars();
             }
 
             // Update the avatar to the previous level
@@ -302,8 +302,8 @@ class TaskController extends Controller
         }
         // Perform the query based on whether a search term is provided
         if (!empty($search)) {
-            $query->where('taskname', 'like', "%$search%");
-        } 
+            $query->where('taskname', 'like', "%$search%")->orderBy('created_at', 'desc');
+        }
 
         // Execute the query
         $tasks = $query->paginate(5);
