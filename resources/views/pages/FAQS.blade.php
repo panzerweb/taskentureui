@@ -13,19 +13,18 @@
 --}}
 
 @extends('layouts.app')
-
 @section('content')
-
 <div class="help-header-div py-5">
     <h1 class="text-center text-light">
         FAQS
     </h1>
 </div>
 
+
 <div class="container mt-5">
     <div class="card shadow-lg border-0">
         <div class="card-body p-5">
-            <h2>Frequently Asked Questions</h2>
+            <h2 style="color: #6635B1">Frequently Asked Questions</h2>
             <div class="accordion mt-4" id="faqAccordion">
 
                 <!-- FAQ Item 1 -->
@@ -37,7 +36,9 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            This project is a web application aimed at helping users manage tasks effectively and improve productivity.
+                        This project is a gamified web-based to-do list application designed to make task management engaging and fun. 
+                        By incorporating game-like elements such as rewards, levels, and achievements, the system motivates users to complete tasks and stay productive. 
+                        It aims to transform everyday task organization into an enjoyable and rewarding experience.
                         </div>
                     </div>
                 </div>
@@ -66,6 +67,41 @@
                     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             Yes, the application is fully responsive and optimized for use on both desktop and mobile devices.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                        Does Reporting a Bug fetches some of our sensitive data?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                        No, reporting a bug does not collect or send any sensitive personal data. 
+                        Only information relevant to identifying and fixing the issue is gathered, 
+                        and you have full control over the details you share.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                        What does Priority means in Task Management Section?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                            The Task Management section allows users to set the priority of their tasks to help them focus on what matters most. 
+                            <br>There are three priority levels available:  <br>
+                            - **High Priority**: Tasks that require immediate attention or are critical to completing your goals.  <br>
+                            - **Medium Priority**: Important tasks that can be scheduled for later or after high-priority items are addressed.  <br>
+                            - **Low Priority**: Tasks that are less urgent and can be completed at a more flexible time.  <br>
+                            Assigning a priority ensures efficient time management and better organization of your to-do list.
                         </div>
                     </div>
                 </div>

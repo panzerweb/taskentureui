@@ -24,11 +24,21 @@ of the Web Application.
 }
 
 /* FAQS Content */
-    
-
-/* Report Bug Content */
-
+.accordion-button:hover, 
+.accordion-button.active {
+    background-color: var(--fill-second); 
+    color: var(--secondary); 
+}
+.accordion-body {
+    background-color: var(--fill-second); 
+    color: var(--secondary); 
+}
 /* Contact Us Content */
 
 /* Team Content */
+/* Report Bug Content */
+.btn-warning:hover {
+    transform: scale(1.07);
+}
+
 
