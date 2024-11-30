@@ -2,7 +2,7 @@ const guideContent = {
     "getting-started": {
         title: "Getting Started",
         content: `
-            <p style="font-size: 25px">Welcome to Pixel Quest: TaskMaster! This guide will help you navigate our pixelated productivity adventure.</p>
+            <p style="font-size: 25px">Welcome to Taskenture Guide: This guide will help you navigate our pixelated productivity adventure.</p>
             <div class="image-container">
                 <img src="/images/Guide/gettingstarted.png" alt="Creating a New Task" class="guide-image pixel-border">
             </div>

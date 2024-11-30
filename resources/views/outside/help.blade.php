@@ -58,11 +58,6 @@
                         <a href="https://github.com/" class="btn btn-sm btn-outline-warning"><i class="bi bi-github"></i></a>
                     </div>
                     <small class="text-dark d-block mt-3">Joined: 2024</small>
-
-                    {{-- Go the individual pages of each developer --}}
-                    <a href="{{route('pages.developer', $dev['id'])}}">
-                        <button class="btn btn-warning my-2">Visit Profile</button>
-                    </a>
                 </div>
             </div>
         </div>

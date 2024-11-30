@@ -25,7 +25,7 @@
 <div class="container mt-5">
     <div class="card shadow-lg border-0">
         <div class="card-body p-5">
-            <h2>Frequently Asked Questions</h2>
+            <h2 style="color: #6635B1 ">Frequently Asked Questions</h2>
             <div class="accordion mt-4" id="faqAccordion">
 
                 <!-- FAQ Item 1 -->

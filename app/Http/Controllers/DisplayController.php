@@ -29,7 +29,7 @@ class DisplayController extends Controller
         $user = auth()->user();
         $badges = Badge::all();
         $tasks = Task::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(5);
-        
+
         // Pass the retrieved tasks to the 'home' view for rendering
         // The 'compact('tasks')' creates an array with the 'tasks' variable for the view
         return view('home', compact('user','tasks', 'badges'));

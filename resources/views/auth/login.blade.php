@@ -7,7 +7,10 @@
             <div class="login-container">
                 <div class="row align-items-center">
                     <div class="col-md-5 d-none d-md-block text-center text-white">
-                        <img src="{{ asset('images/auth/auth1.png') }}" alt="Login Illustration" class="img-fluid" style="max-height: 400px; filter: drop-shadow(0 0 10px rgba(103, 58, 183, 0.3));">
+                        <h1 class="text-start"><span class="text-warning">Log In</span> Now!</h1>
+                        <p class="text-start lead">
+                            Sign in to continue your Gamified todo web adventure!
+                        </p>
                     </div>
 
                     <div class="col-md-7">

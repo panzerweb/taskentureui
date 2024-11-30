@@ -7,8 +7,6 @@ const items = [
     { id: 5, name: "Ascendant", image: "/images/badges/level6.svg", description: "You are ready to ascend to higher status", obtain: "Ascended to Level 6, you just finished 15 tasks.", category: "Badges" },
     { id: 6, name: "Night Owl", image: "/images/badges/level7.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
     { id: 7, name: "Alpha Bear", image: "/images/badges/level8.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
-    { id: 8, name: "meow", image: "/images/badges/level9.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
-    { id: 8, name: "aw aw", image: "/images/badges/level10.svg", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Badges" },
     // Avatars
     { id: 9, name: "Starter", image: "/images/avatars/level1.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },
     { id: 10, name: "Rookie", image: "/images/avatars/level2.png", description: "A powerful mage avatar.", obtain: "Cast 1000 spells.", category: "Avatars" },

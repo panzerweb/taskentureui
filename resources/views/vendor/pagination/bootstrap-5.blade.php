@@ -13,33 +13,33 @@
     --fill: #daa3ff;
     }
     .pagination-custom .page-item .page-link {
-        background-color: var(--secondary-content); /* Primary Fill */
+        background-color: var(--bg-color); /* Primary Fill */
         color: var(--secondary); /* White text */
-        border: 1px solid var(--fill-second); /* Secondary Fill Border */
+        border: 1px solid #121212; /* Secondary Fill Border */
         transition: all 0.3s ease-in-out;
     }
 
     .pagination-custom .page-item.active .page-link {
-        background-color: var(--primary-content); /* Primary Color for Active */
+        background-color: var(--primary); /* Primary Color for Active */
         border-color: var(--dark); /* Dark Border */
         color: var(--dark); /* Highlighted Text Color */
         font-weight: bold;
     }
 
     .pagination-custom .page-item.disabled .page-link {
-        background-color: var(--first-accent); /* Light Gray for Disabled */
+        background-color: var(--bg-color); /* Light Gray for Disabled */
         color: var(--second-accent); /* Muted Gray Text */
-        border-color: var(--second-accent); /* Subtle Gray Border */
+        border-color:#121212; /* Subtle Gray Border */
     }
 
     .pagination-custom .page-item:hover .page-link {
-        background-color: var(--secondary-content); /* Background Color on Hover */
+        background-color: var(--first-accent); /* Background Color on Hover */
         border-color: var(--primary); /* Primary Border on Hover */
         color: var(--dark); /* Lighter Text on Hover */
     }
 
-    .text-warning {
-        color: var(--primary-content) !important; /* Use Primary Content for Text */
+    .text-light {
+        color: var(--first-accent) !important; /* Use Primary Content for Text */
     }
 
     .pagination-custom {
@@ -67,7 +67,7 @@
 @if ($paginator->hasPages())
     <nav class="d-flex justify-items-center justify-content-between my-3">
         <div class="d-flex justify-content-between flex-fill d-sm-none">
-            <ul class="pagination pagination-custom">
+            <ul class="pagination pagination-custom shadow">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true">
@@ -94,7 +94,7 @@
 
         <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
             <div>
-                <p class="small text-warning">
+                <p class="small text-light">
                     {!! __('Showing') !!}
                     <span class="fw-bold">{{ $paginator->lastItem() }}</span>
                     {!! __('of') !!}
